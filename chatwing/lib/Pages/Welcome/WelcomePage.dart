@@ -26,6 +26,20 @@ class WelcomePage extends StatelessWidget {
                   Image.asset(AssetsImage.girlPic),
                 ],
               ),
+              SizedBox(height: 40),
+              Text(
+                WelcomePageString.nowYouAre,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              Text(
+                WelcomePageString.connected,
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              SizedBox(height: 10),
+              Text(
+                WelcomePageString.discription,
+                style: Theme.of(context).textTheme.labelLarge,
+              )
             ],
           ),
         ),

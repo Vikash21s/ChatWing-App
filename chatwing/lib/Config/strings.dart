@@ -2,7 +2,7 @@ class AppString {
   static const appName = "ChatWing";
 }
 
-class WelcomePage {
+class WelcomePageString {
   static const appName = "ChatWing";
   static const nowYouAre = "Now You Are";
   static const connected = "Connected";
