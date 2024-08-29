@@ -25,7 +25,7 @@ class WelcomePage extends StatelessWidget {
                   SvgPicture.asset(AssetsImage.connectSVG),
                   Image.asset(AssetsImage.girlPic),
                 ],
-              )
+              ),
             ],
           ),
         ),
