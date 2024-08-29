@@ -17,8 +17,9 @@ class WelcomePage extends StatelessWidget {
             children: [
               SizedBox(height: 30),
               Welcomeheading(),
-              SizedBox(height: 30),
+              SizedBox(height: 60),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(AssetsImage.boyPic),
                   SvgPicture.asset(AssetsImage.connectSVG),
