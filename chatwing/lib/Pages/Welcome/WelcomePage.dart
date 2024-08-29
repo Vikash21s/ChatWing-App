@@ -12,7 +12,7 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
               SizedBox(height: 30),
@@ -38,6 +38,7 @@ class WelcomePage extends StatelessWidget {
               SizedBox(height: 10),
               Text(
                 WelcomePageString.discription,
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.labelLarge,
               )
             ],
