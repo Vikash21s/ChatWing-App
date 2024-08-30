@@ -1,8 +1,10 @@
 import 'package:chatwing/Config/Images.dart';
 import 'package:chatwing/Config/strings.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomebody.dart';
+import 'package:chatwing/Pages/Welcome/Widgets/welcomefooterbutton.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomeheading.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -15,16 +17,11 @@ class WelcomePage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(height: 30),
               Welcomeheading(),
-              SizedBox(height: 60),
               WelcomeBody(),
-              SizedBox(height: 60),
-              SlideAction(
-                onSubmit: () {},
-                innerColor: Theme.of(context).colorScheme.primary,
-              ),
+              WelcomeFooterButton(),
             ],
           ),
         ),
