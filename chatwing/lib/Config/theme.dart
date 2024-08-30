@@ -5,7 +5,7 @@ var lightTheme = ThemeData();
 var darkTheme = ThemeData(
   brightness: Brightness.dark,
   useMaterial3: true,
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     backgroundColor: dContainerColor,
   ),
   inputDecorationTheme: InputDecorationTheme(
@@ -19,8 +19,8 @@ var darkTheme = ThemeData(
   colorScheme: const ColorScheme.dark(
     primary: dPrimarColor,
     onPrimary: dOnBackgroundColor,
-    background: dBackgroundColor,
-    onBackground: dOnBackgroundColor,
+    surface: dBackgroundColor,
+    onSurface: dOnBackgroundColor,
     primaryContainer: dContainerColor,
     onPrimaryContainer: donContainerColor,
   ),

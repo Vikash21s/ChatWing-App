@@ -18,7 +18,7 @@ class WelcomeBody extends StatelessWidget {
             Image.asset(AssetsImage.girlPic),
           ],
         ),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
         Text(
           WelcomePageString.nowYouAre,
           style: Theme.of(context).textTheme.headlineMedium,
@@ -27,7 +27,7 @@ class WelcomeBody extends StatelessWidget {
           WelcomePageString.connected,
           style: Theme.of(context).textTheme.headlineLarge,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Text(
           WelcomePageString.discription,
           textAlign: TextAlign.center,

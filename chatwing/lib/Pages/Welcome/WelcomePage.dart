@@ -3,7 +3,7 @@ import 'package:chatwing/Config/strings.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomebody.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomeheading.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:slide_to_act/slide_to_act.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -20,6 +20,11 @@ class WelcomePage extends StatelessWidget {
               Welcomeheading(),
               SizedBox(height: 60),
               WelcomeBody(),
+              SizedBox(height: 60),
+              SlideAction(
+                onSubmit: () {},
+                innerColor: Theme.of(context).colorScheme.primary,
+              ),
             ],
           ),
         ),
