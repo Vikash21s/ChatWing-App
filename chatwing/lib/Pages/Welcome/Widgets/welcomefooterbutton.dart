@@ -15,8 +15,9 @@ class WelcomeFooterButton extends StatelessWidget {
     return SlideAction(
       onSubmit: () {
         Get.offAllNamed("/authPage");
+        return null;
       },
-      sliderButtonIcon: Container(
+      sliderButtonIcon: SizedBox(
         width: 25,
         height: 25,
         child: SvgPicture.asset(

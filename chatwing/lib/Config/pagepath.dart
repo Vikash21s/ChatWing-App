@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 var pagePath = [
   GetPage(
     name: "/authPage",
-    page: () => Authpage(),
+    page: () => const Authpage(),
     transition: Transition.leftToRight,
   ),
 ];

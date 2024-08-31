@@ -15,7 +15,7 @@ class WelcomePage extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

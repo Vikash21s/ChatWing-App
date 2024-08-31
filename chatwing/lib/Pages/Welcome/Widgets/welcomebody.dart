@@ -18,7 +18,7 @@ class WelcomeBody extends StatelessWidget {
             Image.asset(AssetsImage.girlPic),
           ],
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 30),
         Text(
           WelcomePageString.nowYouAre,
           style: Theme.of(context).textTheme.headlineMedium,
