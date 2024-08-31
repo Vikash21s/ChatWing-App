@@ -11,7 +11,7 @@ class Authpage extends StatelessWidget {
       ),
       body: const Column(
         children: [
-          Text("Auth page"),
+          Text("Auth page"), // this is the auth page
         ],
       ),
     );
