@@ -4,7 +4,6 @@ import 'package:chatwing/Pages/Welcome/Widgets/welcomebody.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomefooterbutton.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomeheading.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 class WelcomePage extends StatelessWidget {
