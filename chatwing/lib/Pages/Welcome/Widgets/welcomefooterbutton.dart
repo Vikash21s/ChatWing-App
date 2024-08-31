@@ -2,6 +2,9 @@ import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Config/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_common/get_reset.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 class WelcomeFooterButton extends StatelessWidget {
@@ -10,7 +13,9 @@ class WelcomeFooterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SlideAction(
-      onSubmit: () {},
+      onSubmit: () {
+        Get.offAllNamed("/authPage");
+      },
       sliderButtonIcon: Container(
         width: 25,
         height: 25,
