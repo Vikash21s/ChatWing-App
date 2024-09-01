@@ -1,3 +1,4 @@
+import 'package:chatwing/Pages/Auth/Widgets/loginform.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -81,7 +82,8 @@ class AuthPageBody extends StatelessWidget {
                       )
                     ],
                   ),
-                )
+                ),
+                LoginForm(),
               ],
             ),
           )
