@@ -21,56 +21,62 @@ class AuthPageBody extends StatelessWidget {
               children: [
                 Obx(
                   () => Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
                         onTap: () {
                           isLogin.value = true;
                         },
-                        child: Column(
-                          children: [
-                            Text(
-                              "Login",
-                              style: isLogin.value
-                                  ? Theme.of(context).textTheme.bodyLarge
-                                  : Theme.of(context).textTheme.labelLarge,
-                            ),
-                            SizedBox(height: 5),
-                            AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
-                              width: isLogin.value ? 100 : 0,
-                              height: 3,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: Theme.of(context).colorScheme.primary,
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width / 2.5,
+                          child: Column(
+                            children: [
+                              Text(
+                                "Login",
+                                style: isLogin.value
+                                    ? Theme.of(context).textTheme.bodyLarge
+                                    : Theme.of(context).textTheme.labelLarge,
                               ),
-                            )
-                          ],
+                              SizedBox(height: 5),
+                              AnimatedContainer(
+                                duration: Duration(milliseconds: 200),
+                                width: isLogin.value ? 100 : 0,
+                                height: 3,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       InkWell(
                         onTap: () {
                           isLogin.value = false;
                         },
-                        child: Column(
-                          children: [
-                            Text(
-                              "SignUp",
-                              style: isLogin.value
-                                  ? Theme.of(context).textTheme.labelLarge
-                                  : Theme.of(context).textTheme.bodyLarge,
-                            ),
-                            SizedBox(height: 5),
-                            AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
-                              width: isLogin.value ? 0 : 100,
-                              height: 3,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: Theme.of(context).colorScheme.primary,
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width / 2.5,
+                          child: Column(
+                            children: [
+                              Text(
+                                "SignUp",
+                                style: isLogin.value
+                                    ? Theme.of(context).textTheme.labelLarge
+                                    : Theme.of(context).textTheme.bodyLarge,
                               ),
-                            )
-                          ],
+                              SizedBox(height: 5),
+                              AnimatedContainer(
+                                duration: Duration(milliseconds: 200),
+                                width: isLogin.value ? 0 : 100,
+                                height: 3,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],
