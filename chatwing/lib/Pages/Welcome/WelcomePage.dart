@@ -1,5 +1,3 @@
-import 'package:chatwing/Config/Images.dart';
-import 'package:chatwing/Config/strings.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomebody.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomefooterbutton.dart';
 import 'package:chatwing/Pages/Welcome/Widgets/welcomeheading.dart';
