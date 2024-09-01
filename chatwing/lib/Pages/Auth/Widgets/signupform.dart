@@ -1,16 +1,23 @@
 import 'package:chatwing/Widget/primarybutton.dart';
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class SignupForm extends StatelessWidget {
+  const SignupForm({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 40,
+        SizedBox(height: 40),
+        TextField(
+          decoration: InputDecoration(
+            hintText: "Full Name",
+            prefixIcon: Icon(
+              Icons.person_sharp,
+            ),
+          ),
         ),
+        SizedBox(height: 40),
         TextField(
           decoration: InputDecoration(
             hintText: "Email",
@@ -32,7 +39,7 @@ class LoginForm extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            PrimaryButton(btnName: "LOGIN", icon: Icons.lock_open_outlined),
+            PrimaryButton(btnName: "SIGNUP", icon: Icons.lock_open_outlined),
           ],
         )
       ],

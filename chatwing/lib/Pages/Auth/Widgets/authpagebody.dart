@@ -1,4 +1,5 @@
 import 'package:chatwing/Pages/Auth/Widgets/loginform.dart';
+import 'package:chatwing/Pages/Auth/Widgets/signupform.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ class AuthPageBody extends StatelessWidget {
     RxBool isLogin = false.obs;
     return Container(
       padding: EdgeInsets.all(20),
-      height: 400,
+      // height: 400,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Theme.of(context).colorScheme.primaryContainer,
@@ -83,7 +84,9 @@ class AuthPageBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                LoginForm(),
+                Obx(
+                  () => isLogin.value ? LoginForm() : SignupForm(),
+                )
               ],
             ),
           )
