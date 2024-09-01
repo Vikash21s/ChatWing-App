@@ -85,7 +85,7 @@ class AuthPageBody extends StatelessWidget {
                   ),
                 ),
                 Obx(
-                  () => isLogin.value ? LoginForm() : SignupForm(),
+                  () => isLogin.value ? const LoginForm() : SignupForm(),
                 )
               ],
             ),
