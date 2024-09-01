@@ -6,7 +6,7 @@ class SignupForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         SizedBox(height: 40),
         TextField(
@@ -17,7 +17,7 @@ class SignupForm extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 30),
         TextField(
           decoration: InputDecoration(
             hintText: "Email",
@@ -26,7 +26,7 @@ class SignupForm extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 30),
         TextField(
           decoration: InputDecoration(
             hintText: "Password",

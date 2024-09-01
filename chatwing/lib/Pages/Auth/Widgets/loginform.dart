@@ -19,7 +19,7 @@ class LoginForm extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 30),
         TextField(
           decoration: InputDecoration(
             hintText: "Password",

@@ -7,16 +7,18 @@ class Authpage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Welcomeheading(),
-              SizedBox(height: 40),
-              AuthPageBody(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Welcomeheading(),
+                SizedBox(height: 40),
+                AuthPageBody(),
+              ],
+            ),
           ),
         ),
       ),
