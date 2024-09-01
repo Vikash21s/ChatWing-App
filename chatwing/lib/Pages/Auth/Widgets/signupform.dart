@@ -1,12 +1,13 @@
 import 'package:chatwing/Widget/primarybutton.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         SizedBox(height: 40),
         TextField(
@@ -39,7 +40,11 @@ class SignupForm extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            PrimaryButton(btnName: "SIGNUP", icon: Icons.lock_open_outlined),
+            PrimaryButton(
+              ontap: () {},
+              btnName: "SIGNUP",
+              icon: Icons.lock_open_outlined,
+            ),
           ],
         )
       ],
