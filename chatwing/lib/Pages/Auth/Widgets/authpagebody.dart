@@ -37,7 +37,7 @@ class AuthPageBody extends StatelessWidget {
                             ),
                             SizedBox(height: 5),
                             AnimatedContainer(
-                              duration: Duration(seconds: 1),
+                              duration: Duration(milliseconds: 200),
                               width: isLogin.value ? 100 : 0,
                               height: 3,
                               decoration: BoxDecoration(
@@ -62,7 +62,7 @@ class AuthPageBody extends StatelessWidget {
                             ),
                             SizedBox(height: 5),
                             AnimatedContainer(
-                              duration: Duration(seconds: 1),
+                              duration: Duration(milliseconds: 200),
                               width: isLogin.value ? 0 : 100,
                               height: 3,
                               decoration: BoxDecoration(
