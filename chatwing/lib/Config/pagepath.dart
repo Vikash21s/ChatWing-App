@@ -5,6 +5,6 @@ var pagePath = [
   GetPage(
     name: "/authPage",
     page: () => const Authpage(),
-    transition: Transition.leftToRight,
+    transition: Transition.zoom, // change page slide
   ),
 ];
