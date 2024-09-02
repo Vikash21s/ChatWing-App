@@ -15,7 +15,7 @@ class ChatList extends StatelessWidget {
                 AssetsImage.girlPic,
                 width: 70,
               ),
-              SizedBox(width: 10),
+              SizedBox(width: 15),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
