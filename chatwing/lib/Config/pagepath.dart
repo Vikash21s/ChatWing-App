@@ -1,4 +1,5 @@
 import 'package:chatwing/Pages/Auth/authpage.dart';
+import 'package:chatwing/Pages/Chat/ChatPage.dart';
 import 'package:chatwing/Pages/HomePage/homepage.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,11 @@ var pagePath = [
   GetPage(
     name: "/homePage",
     page: () => const Homepage(),
+    transition: Transition.zoom, // change page slide
+  ),
+  GetPage(
+    name: "/chatPage",
+    page: () => const ChatPage(),
     transition: Transition.zoom, // change page slide
   ),
 ];

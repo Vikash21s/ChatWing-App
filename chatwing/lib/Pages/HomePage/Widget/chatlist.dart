@@ -1,6 +1,8 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class ChatList extends StatelessWidget {
   const ChatList({super.key});
@@ -9,11 +11,16 @@ class ChatList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        ChatTile(
-          imageUrl: AssetsImage.boyPic,
-          name: "Deepak",
-          lastChat: "Okay Bye",
-          lastTime: "09:21 PM",
+        InkWell(
+          onTap: () {
+            Get.toNamed("/chatPage");
+          },
+          child: ChatTile(
+            imageUrl: AssetsImage.boyPic,
+            name: "Deepak",
+            lastChat: "Okay Bye",
+            lastTime: "09:21 PM",
+          ),
         ),
         ChatTile(
           imageUrl: AssetsImage.boyPic,
