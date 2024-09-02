@@ -29,7 +29,7 @@ class ChatList extends StatelessWidget {
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
-              )
+              ),
             ],
           ),
         )
