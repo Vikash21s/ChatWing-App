@@ -15,6 +15,13 @@ class ChatList extends StatelessWidget {
                 AssetsImage.girlPic,
                 width: 70,
               ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Deepak"),
+                  Text("Baad Me bat krte hain"),
+                ],
+              )
             ],
           ),
         )
