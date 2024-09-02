@@ -1,4 +1,5 @@
 import 'package:chatwing/Config/images.dart';
+import 'package:chatwing/Pages/Chat/Widgets/chatbubble.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -41,22 +42,13 @@ class ChatPage extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              constraints: BoxConstraints(
-                  //minWidth: 100,
-                  maxWidth: MediaQuery.sizeOf(context).width / 1.3),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(0), // we can change text box
-                  topRight: Radius.circular(15),
-                  bottomLeft: Radius.circular(17),
-                  bottomRight: Radius.circular(15),
-                ),
-              ),
-              child: Text("Hello Vikash What's up broll"),
-            )
+            ChatBubble(
+              message: "Hello How are you ?",
+              imageUrl: "",
+              isComming: true,
+              status: "read",
+              time: "10:10 AM",
+            ),
           ],
         ),
       ),
