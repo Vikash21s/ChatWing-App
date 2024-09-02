@@ -11,6 +11,22 @@ class ChatList extends StatelessWidget {
       children: [
         ChatTile(),
         ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
+        ChatTile(),
       ],
     );
   }
