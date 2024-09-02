@@ -49,6 +49,13 @@ class ChatPage extends StatelessWidget {
               status: "read",
               time: "10:10 AM",
             ),
+            ChatBubble(
+              message: "Hello How are you ?",
+              imageUrl: "",
+              isComming: false,
+              status: "read",
+              time: "10:10 AM",
+            ),
           ],
         ),
       ),
