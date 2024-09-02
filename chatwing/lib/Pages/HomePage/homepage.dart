@@ -1,5 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Config/strings.dart';
+import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -55,13 +56,7 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: TabBarView(controller: tabController, children: [
-          ListView(
-            children: [
-              ListTile(
-                title: Text("Name Vikash"),
-              )
-            ],
-          ),
+          ChatList(),
           ListView(
             children: [
               ListTile(
