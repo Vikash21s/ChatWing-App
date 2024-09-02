@@ -23,9 +23,10 @@ class ChatList extends StatelessWidget {
                     "Deepak",
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
+                  SizedBox(height: 2), // we can change both text distance
                   Text(
                     "Baad Me bat krte hain",
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
               )
