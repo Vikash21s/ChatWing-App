@@ -52,7 +52,29 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
           color: Theme.of(context).colorScheme.onBackground,
         ),
       ),
-      body: TabBarView(children: [ListView()]),
+      body: TabBarView(controller: tabController, children: [
+        ListView(
+          children: [
+            ListTile(
+              title: Text("Name Vikash"),
+            )
+          ],
+        ),
+        ListView(
+          children: [
+            ListTile(
+              title: Text("Name Vikash"),
+            )
+          ],
+        ),
+        ListView(
+          children: [
+            ListTile(
+              title: Text("Name Vikash"),
+            )
+          ],
+        ),
+      ]),
     );
   }
 }
