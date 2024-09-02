@@ -55,7 +55,7 @@ class ChatPage extends StatelessWidget {
                   bottomRight: Radius.circular(15),
                 ),
               ),
-              child: Text("Hello Vikash or bta project kha tk pahuncha"),
+              child: Text("Hello Vikash What's up broll"),
             )
           ],
         ),
