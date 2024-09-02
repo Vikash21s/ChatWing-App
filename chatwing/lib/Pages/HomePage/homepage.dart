@@ -46,11 +46,13 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context).colorScheme.onBackground,
+        ),
       ),
-      body: Column(
-        children: [],
-      ),
+      body: TabBarView(children: [ListView()]),
     );
   }
 }
