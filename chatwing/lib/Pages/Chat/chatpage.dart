@@ -44,24 +44,18 @@ class ChatPage extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(10),
               constraints: BoxConstraints(
-                  minWidth: 100,
+                  //minWidth: 100,
                   maxWidth: MediaQuery.sizeOf(context).width / 1.3),
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.primaryContainer,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(0), // we can change text box
-                  topRight: Radius.circular(16),
+                  topRight: Radius.circular(15),
                   bottomLeft: Radius.circular(17),
                   bottomRight: Radius.circular(15),
                 ),
               ),
-              child: const Row(
-                children: [
-                  Flexible(
-                      child:
-                          Text("Hello Vikash or bta project kha tk pahuncha")),
-                ],
-              ),
+              child: Text("Hello Vikash or bta project kha tk pahuncha"),
             )
           ],
         ),
