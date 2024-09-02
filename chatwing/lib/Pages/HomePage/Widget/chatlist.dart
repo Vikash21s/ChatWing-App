@@ -9,24 +9,36 @@ class ChatList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
-        ChatTile(),
+        ChatTile(
+          imageUrl: AssetsImage.boyPic,
+          name: "Deepak",
+          lastChat: "Okay Bye",
+          lastTime: "09:21 PM",
+        ),
+        ChatTile(
+          imageUrl: AssetsImage.boyPic,
+          name: "Rahul",
+          lastChat: "Okay Bye",
+          lastTime: "09:21 PM",
+        ),
+        ChatTile(
+          imageUrl: AssetsImage.boyPic,
+          name: "Vikash",
+          lastChat: "Okay Bye",
+          lastTime: "09:25 PM",
+        ),
+        ChatTile(
+          imageUrl: AssetsImage.girlPic,
+          name: "Khushi",
+          lastChat: "Okay Bye",
+          lastTime: "10:11 PM",
+        ),
+        ChatTile(
+          imageUrl: AssetsImage.girlPic,
+          name: "Barkha mam",
+          lastChat: "Okay Bye",
+          lastTime: "05:15 PM",
+        ),
       ],
     );
   }

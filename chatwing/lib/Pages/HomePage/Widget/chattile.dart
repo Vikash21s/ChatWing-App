@@ -2,7 +2,16 @@ import 'package:chatwing/Config/images.dart';
 import 'package:flutter/material.dart';
 
 class ChatTile extends StatelessWidget {
-  const ChatTile({super.key});
+  final String imageUrl;
+  final String name;
+  final String lastChat;
+  final String lastTime;
+  const ChatTile(
+      {super.key,
+      required this.imageUrl,
+      required this.name,
+      required this.lastChat,
+      required this.lastTime});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +28,7 @@ class ChatTile extends StatelessWidget {
           Row(
             children: [
               Image.asset(
-                AssetsImage.girlPic,
+                imageUrl,
                 width: 70,
               ),
               SizedBox(width: 15),
@@ -27,12 +36,12 @@ class ChatTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Deepak",
+                    name,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   SizedBox(height: 2), // we can change both text distance
                   Text(
-                    "Baad Me bat krte hain",
+                    lastChat,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
@@ -40,7 +49,7 @@ class ChatTile extends StatelessWidget {
             ],
           ),
           Text(
-            "08:33 PM",
+            lastTime,
             style: Theme.of(context).textTheme.labelMedium,
           ),
         ],
