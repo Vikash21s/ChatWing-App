@@ -14,4 +14,5 @@ class AssetsImage {
   static const chatStatusSvg = "$iconsPath/chatStatus.svg";
   static const chatSendSvg = "$iconsPath/send.svg";
   static const chatGallarySvg = "$iconsPath/gallary.svg";
+  static const chatMicSvg = "$iconsPath/mic.svg";
 }
