@@ -58,8 +58,7 @@ class ChatPage extends StatelessWidget {
             ),
             ChatBubble(
               message: "Hi bro kya haal ?",
-              imageUrl:
-                  "https://www.google.com/imgres?q=ganesh&imgurl=https%3A%2F%2Fih1.redbubble.net%2Fimage.5142852451.9909%2Fflat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8.jpg&imgrefurl=https%3A%2F%2Fwww.redbubble.com%2Fi%2Fposter%2FLord-Ganesh-Digital-Painting-by-Mystikosart%2F149609909.LVTDI&docid=FLpLcTES1tC5CM&tbnid=Kt8wisSw-L0nWM&vet=12ahUKEwjl06DIoqWIAxXQUGcHHSZnJ-QQM3oECH0QAA..i&w=750&h=1000&hcb=2&ved=2ahUKEwjl06DIoqWIAxXQUGcHHSZnJ-QQM3oECH0QAA",
+              imageUrl: "https://picsum.photos/250?image=9",
               isComming: false,
               status: "read",
               time: "10:10 AM",

@@ -26,21 +26,27 @@ class ChatBubble extends StatelessWidget {
             isComming ? CrossAxisAlignment.start : CrossAxisAlignment.end,
         children: [
           Container(
-            padding: EdgeInsets.all(10),
-            constraints: BoxConstraints(
-                //minWidth: 100,
-                maxWidth: MediaQuery.sizeOf(context).width / 1.3),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primaryContainer,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(0), // we can change text box
-                topRight: Radius.circular(15),
-                bottomLeft: Radius.circular(17),
-                bottomRight: Radius.circular(15),
+              padding: EdgeInsets.all(10),
+              constraints: BoxConstraints(
+                  //minWidth: 100,
+                  maxWidth: MediaQuery.sizeOf(context).width / 1.3),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(0), // we can change text box
+                  topRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(17),
+                  bottomRight: Radius.circular(15),
+                ),
               ),
-            ),
-            child: Text(message),
-          ),
+              child: imageUrl == ""
+                  ? Text(message)
+                  : Column(
+                      children: [
+                        Image.network(imageUrl),
+                        Text(message),
+                      ],
+                    )),
           SizedBox(height: 10),
           Row(
             mainAxisAlignment:
