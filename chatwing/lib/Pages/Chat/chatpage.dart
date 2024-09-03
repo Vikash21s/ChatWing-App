@@ -51,7 +51,11 @@ class ChatPage extends StatelessWidget {
             color: Theme.of(context).colorScheme.primaryContainer),
         child: Row(
           children: [
-            SvgPicture.asset(AssetsImage.chatMicSvg),
+            SvgPicture.asset(
+              AssetsImage.chatMicSvg,
+              width: 25,
+            ),
+            SizedBox(width: 10),
             Expanded(
               child: TextField(
                 decoration: InputDecoration(
@@ -60,8 +64,11 @@ class ChatPage extends StatelessWidget {
                         "Type message ..."), // ye text box me hint ke liye use hua hai
               ),
             ),
+            SizedBox(width: 10),
             SvgPicture.asset(AssetsImage.chatGallarySvg),
-            SvgPicture.asset(AssetsImage.chatSendSvg),
+            SizedBox(width: 5),
+            SvgPicture.asset(AssetsImage.chatSendSvg,
+                width: 30), // yha se send box ka size change kr skte hain
           ],
         ),
       ),
