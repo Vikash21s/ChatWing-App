@@ -1,7 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Config/strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Welcomeheading extends StatelessWidget {
   const Welcomeheading({super.key});
@@ -13,20 +12,23 @@ class Welcomeheading extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              AssetsImage.appIconSVG,
-              //color: Theme.of(context).colorScheme.onBackground,
+            Image.asset(
+              AssetsImage.logomain,
+              fit: BoxFit.contain, // Adjust the fit property here
+              height: 200.0, // Set a specific height
+              width: 200.0, // Set a specific width
             ),
           ],
         ),
         SizedBox(height: 20),
         Text(
           AppString.appName,
-          style: Theme.of(context)
-              .textTheme
-              .headlineLarge
-              ?.copyWith(color: Theme.of(context).colorScheme.secondary),
-        )
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                fontSize: 36.0, // Increase the font size
+                fontWeight: FontWeight.w900, // Increase the weight to make it bolder
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+        ),
       ],
     );
   }
