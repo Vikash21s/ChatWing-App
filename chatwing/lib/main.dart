@@ -1,11 +1,20 @@
 import 'package:chatwing/Config/pagepath.dart';
 import 'package:chatwing/Config/theme.dart';
+import 'package:chatwing/Pages/Auth/authpage.dart';
 import 'package:chatwing/Pages/Welcome/WelcomePage.dart';
+import 'package:chatwing/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +29,7 @@ class MyApp extends StatelessWidget {
       getPages: pagePath,
       darkTheme: darkTheme,
       themeMode: ThemeMode.dark,
-      home: const WelcomePage(),
+      home: Authpage(),
     );
   }
 }

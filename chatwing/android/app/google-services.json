@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "939920784674",
+    "project_id": "chat-wing-chat-app",
+    "storage_bucket": "chat-wing-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939920784674:android:d854566752078298e3397b",
+        "android_client_info": {
+          "package_name": "com.example.chatwing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2VmpTZ164aJzw3WAxgbHMMl0jAup0puk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

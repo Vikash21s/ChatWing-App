@@ -8,7 +8,7 @@ class AuthPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RxBool isLogin = false.obs;
+    RxBool isLogin = true.obs;
     return Container(
       padding: EdgeInsets.all(20),
       // height: 400,

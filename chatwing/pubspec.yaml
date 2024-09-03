@@ -38,6 +38,8 @@ dependencies:
   flutter_svg: ^2.0.10+1 #SVG ke liye
   slide_to_act: ^2.0.2 # or the latest version on Pub
   get: ^4.6.6  #for state management and page routing
+  firebase_core: ^3.4.0
+  firebase_auth: ^5.2.0
 
 dev_dependencies:
   flutter_test:
