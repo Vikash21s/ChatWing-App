@@ -51,9 +51,13 @@ class ChatPage extends StatelessWidget {
             color: Theme.of(context).colorScheme.primaryContainer),
         child: Row(
           children: [
-            SvgPicture.asset(
-              AssetsImage.chatMicSvg,
-              width: 25,
+            Container(
+              width: 30, // uski configuration 30, 30 hai
+              height: 30,
+              child: SvgPicture.asset(
+                AssetsImage.chatMicSvg,
+                width: 25,
+              ),
             ),
             SizedBox(width: 10),
             Expanded(
