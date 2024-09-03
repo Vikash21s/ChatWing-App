@@ -32,12 +32,19 @@ class ChatBubble extends StatelessWidget {
                   maxWidth: MediaQuery.sizeOf(context).width / 1.3),
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.primaryContainer,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(0), // we can change text box
-                  topRight: Radius.circular(15),
-                  bottomLeft: Radius.circular(17),
-                  bottomRight: Radius.circular(15),
-                ),
+                borderRadius: isComming
+                    ? BorderRadius.only(
+                        topLeft: Radius.circular(0), // we can change text box
+                        topRight: Radius.circular(15),
+                        bottomLeft: Radius.circular(17),
+                        bottomRight: Radius.circular(15),
+                      )
+                    : BorderRadius.only(
+                        topLeft: Radius.circular(15), // we can change text box
+                        topRight: Radius.circular(0),
+                        bottomLeft: Radius.circular(17),
+                        bottomRight: Radius.circular(15),
+                      ),
               ),
               child: imageUrl == ""
                   ? Text(message)
