@@ -39,14 +39,26 @@ class ChatPage extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: Container(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        margin:
+            EdgeInsets.all(1), // yha se mujhe text box ka margin set krna hai
+        padding: EdgeInsets.symmetric(
+            vertical: 4,
+            horizontal: 20), // yha se text box ka size change kr skte hain
         decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
             color: Theme.of(context).colorScheme.primaryContainer),
         child: Row(
           children: [
             SvgPicture.asset(AssetsImage.chatMicSvg),
             Expanded(
-              child: TextField(),
+              child: TextField(
+                decoration: InputDecoration(
+                    filled: false,
+                    hintText:
+                        "Type message ..."), // ye text box me hint ke liye use hua hai
+              ),
             ),
             SvgPicture.asset(AssetsImage.chatGallarySvg),
             SvgPicture.asset(AssetsImage.chatSendSvg),
