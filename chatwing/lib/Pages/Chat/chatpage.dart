@@ -42,7 +42,7 @@ class ChatPage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         margin:
-            EdgeInsets.all(1), // yha se mujhe text box ka margin set krna hai
+            EdgeInsets.all(5), // yha se mujhe text box ka margin set krna hai
         padding: EdgeInsets.symmetric(
             vertical: 4,
             horizontal: 20), // yha se text box ka size change kr skte hain
