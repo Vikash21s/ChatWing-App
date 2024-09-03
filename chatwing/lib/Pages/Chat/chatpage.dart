@@ -65,7 +65,7 @@ class ChatPage extends StatelessWidget {
                 decoration: InputDecoration(
                     filled: false,
                     hintText:
-                        "Type message ..."), // ye text box me hint ke liye use hua hai
+                        "Type messageE ..."), // ye text box me hint ke liye use hua hai
               ),
             ),
             SizedBox(width: 10),
