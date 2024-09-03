@@ -65,10 +65,22 @@ class ChatPage extends StatelessWidget {
               ),
             ),
             SizedBox(width: 10),
-            SvgPicture.asset(AssetsImage.chatGallarySvg),
-            SizedBox(width: 5),
-            SvgPicture.asset(AssetsImage.chatSendSvg,
-                width: 30), // yha se send box ka size change kr skte hain
+            Container(
+              width: 35, // uski configuration 30, 30 hai
+              height: 30,
+              child: SvgPicture.asset(
+                AssetsImage.chatGallarySvg,
+                width: 25,
+              ),
+            ),
+            Container(
+              width: 35,
+              height: 38,
+              child: SvgPicture.asset(
+                AssetsImage.chatSendSvg,
+                width: 25,
+              ),
+            ), // yha se send box ka size change kr skte hain
           ],
         ),
       ),
