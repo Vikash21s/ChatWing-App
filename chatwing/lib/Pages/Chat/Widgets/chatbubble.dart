@@ -42,8 +42,12 @@ class ChatBubble extends StatelessWidget {
               child: imageUrl == ""
                   ? Text(message)
                   : Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.network(imageUrl),
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(imageUrl)),
+                        SizedBox(height: 10),
                         Text(message),
                       ],
                     )),
