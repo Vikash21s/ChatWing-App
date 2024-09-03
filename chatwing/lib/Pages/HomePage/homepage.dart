@@ -25,8 +25,11 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
         ),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SvgPicture.asset(
-            AssetsImage.appIconSVG,
+          child: Image.asset(
+            AssetsImage.semilogo,
+              fit: BoxFit.contain, // Adjust the fit property here
+              height: 20.0, // Set a specific height
+              width: 20.0, // Set a specific width
           ),
         ),
         actions: [

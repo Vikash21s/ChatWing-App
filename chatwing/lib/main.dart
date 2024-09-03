@@ -1,6 +1,5 @@
 import 'package:chatwing/Config/pagepath.dart';
 import 'package:chatwing/Config/theme.dart';
-import 'package:chatwing/Pages/HomePage/homepage.dart';
 import 'package:chatwing/Pages/Welcome/WelcomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       getPages: pagePath,
       darkTheme: darkTheme,
       themeMode: ThemeMode.dark,
-      home: WelcomePage(),
+      home: const WelcomePage(),
     );
   }
 }
