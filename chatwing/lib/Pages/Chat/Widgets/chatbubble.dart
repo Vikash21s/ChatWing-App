@@ -20,7 +20,7 @@ class ChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.only(bottom: 20), // Change the margin b/w two messages
+          EdgeInsets.only(bottom: 20), // Change the margin b/w two messagess
       child: Column(
         crossAxisAlignment:
             isComming ? CrossAxisAlignment.start : CrossAxisAlignment.end,
