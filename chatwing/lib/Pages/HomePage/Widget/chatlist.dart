@@ -17,7 +17,7 @@ class ChatList extends StatelessWidget {
           },
           child: ChatTile(
             imageUrl: AssetsImage.boyPic,
-            name: "Deepak",
+            name: "Vikash Sharma",
             lastChat: "Okay Bye",
             lastTime: "09:21 PM",
           ),
@@ -30,7 +30,7 @@ class ChatList extends StatelessWidget {
         ),
         ChatTile(
           imageUrl: AssetsImage.boyPic,
-          name: "Vikash",
+          name: "Deepak",
           lastChat: "Okay Bye",
           lastTime: "09:25 PM",
         ),
@@ -44,6 +44,12 @@ class ChatList extends StatelessWidget {
           imageUrl: AssetsImage.girlPic,
           name: "Barkha mam",
           lastChat: "Okay Bye",
+          lastTime: "05:15 PM",
+        ),
+        ChatTile(
+          imageUrl: AssetsImage.boyPic,
+          name: "Bunty",
+          lastChat: "Hey!",
           lastTime: "05:15 PM",
         ),
       ],

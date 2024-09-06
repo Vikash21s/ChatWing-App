@@ -17,7 +17,7 @@ class ChatPage extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Deepak", style: Theme.of(context).textTheme.bodyLarge),
+            Text("Vikash Sharma", style: Theme.of(context).textTheme.bodyLarge),
             Text(
               "online",
               style: Theme.of(context).textTheme.labelSmall,
