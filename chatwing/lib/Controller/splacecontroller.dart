@@ -4,15 +4,16 @@ import 'package:get/get.dart';
 class splacecontroller extends GetxController {
   final auth = FirebaseAuth.instance;
 
-  void onInt() async {
+  void onInit() async {
     super.onInit();
-    await splaceHandle();
+    splaceHandle();
   }
 
-  Future<void> splaceHandle() async {
-    Future.delayed(
+  void splaceHandle() async {
+    await Future.delayed(
       Duration(seconds: 3),
     );
     Get.offAllNamed("/homePage");
+    print("Hello");
   }
 }
