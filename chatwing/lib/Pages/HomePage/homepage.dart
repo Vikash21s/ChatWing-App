@@ -4,6 +4,8 @@ import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -27,9 +29,9 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
             AssetsImage.semilogo,
-              fit: BoxFit.contain, // Adjust the fit property here
-              height: 20.0, // Set a specific height
-              width: 20.0, // Set a specific width
+            fit: BoxFit.contain, // Adjust the fit property here
+            height: 20.0, // Set a specific height
+            width: 20.0, // Set a specific width
           ),
         ),
         actions: [
@@ -40,7 +42,9 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed("/profilePage");
+            },
             icon: Icon(
               Icons.more_vert,
             ),
