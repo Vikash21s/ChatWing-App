@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-class splacecontroller extends GetxController {
+class SplaceController extends GetxController {
   final auth = FirebaseAuth.instance;
 
   void onInit() async {
@@ -13,7 +13,12 @@ class splacecontroller extends GetxController {
     await Future.delayed(
       Duration(seconds: 3),
     );
-    Get.offAllNamed("/homePage");
-    print("Hello");
+    if (auth.currentUser == null) {
+      Get.offAllNamed("/authPage");
+    } else {
+      Get.offAllNamed("/homePage");
+      print(auth.currentUser!.email);
+    }
+    print("hello");
   }
 }

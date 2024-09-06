@@ -1,6 +1,7 @@
 import 'package:chatwing/Config/pagepath.dart';
 import 'package:chatwing/Config/theme.dart';
 import 'package:chatwing/Pages/Auth/authpage.dart';
+import 'package:chatwing/Pages/HomePage/homepage.dart';
 import 'package:chatwing/Pages/SplacePage/splacepage.dart';
 import 'package:chatwing/Pages/Welcome/WelcomePage.dart';
 import 'package:chatwing/firebase_options.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       getPages: pagePath,
       darkTheme: darkTheme,
       themeMode: ThemeMode.dark,
-      home: Splacepage(),
+      home: const Splacepage(),
     );
   }
 }
