@@ -24,11 +24,11 @@ var pagePath = [
   GetPage(
     name: "/profilePage",
     page: () => ProfilePage(),
-    transition: Transition.zoom, // change page slide
+    transition: Transition.rightToLeft, // change page slide
   ),
   GetPage(
     name: "/updateProfilePage",
     page: () => UpdateProfile(),
-    transition: Transition.zoom, // change page slide
+    transition: Transition.rightToLeft, // change page slide
   ),
 ];
