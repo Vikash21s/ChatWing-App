@@ -1,3 +1,4 @@
+import 'package:chatwing/Widget/primarybutton.dart';
 import 'package:flutter/material.dart';
 
 class UpdateProfile extends StatelessWidget {
@@ -90,6 +91,38 @@ class UpdateProfile extends StatelessWidget {
                           ),
                         ),
                       ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Text(
+                            "Email id",
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      TextField(
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          hintText: "Phone Number",
+                          hintStyle: Theme.of(context).textTheme.labelLarge,
+                          prefixIcon: Icon(
+                            Icons.phone,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 40), //button save
+                      Row(
+                        mainAxisAlignment:
+                            MainAxisAlignment.center, //change location
+                        children: [
+                          PrimaryButton(
+                            btnName: "Save", //button text
+                            icon: Icons.save,
+                            ontap: () {},
+                          ),
+                        ],
+                      )
                     ],
                   ))
                 ],
