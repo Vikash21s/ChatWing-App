@@ -2,6 +2,8 @@ import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Pages/Profile/Widgets/userinfo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -13,7 +15,9 @@ class ProfilePage extends StatelessWidget {
         title: Text("Profile"),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed("/updateProfilePage");
+            },
             icon: Icon(
               Icons.edit,
             ),
