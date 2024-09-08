@@ -14,7 +14,8 @@ class Splacepage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: SvgPicture.asset(
-          AssetsImage.appIconSVG,
+          AssetsImage
+              .appIconSVG, // Bro yha pr change kr app ka lo splace screen pr
         ),
       ),
     );
