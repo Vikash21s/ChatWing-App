@@ -47,4 +47,9 @@ class Authcontroller extends GetxController {
     }
     isLoading.value = false;
   }
+
+  Future<void> logoutUser() async {
+    await auth.signOut();
+    Get.offAllNamed("/authPage");
+  }
 }
