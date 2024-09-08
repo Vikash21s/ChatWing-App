@@ -113,8 +113,8 @@ class UpdateProfile extends StatelessWidget {
                       ),
                       SizedBox(height: 40), //button save
                       Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.center, //change location
+                        mainAxisAlignment: MainAxisAlignment
+                            .center, //change location  //as per requirment
                         children: [
                           PrimaryButton(
                             btnName: "Save", //button text
