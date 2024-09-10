@@ -1,5 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Config/strings.dart';
+import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/tabbar.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
+    ProfileController profileController = Get.put(ProfileController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,

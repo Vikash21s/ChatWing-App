@@ -1,5 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/authcontroller.dart';
+import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Pages/Profile/Widgets/userinfo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,6 +12,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProfileController profileController = Get.put(ProfileController());
     Authcontroller authcontroller = Get.put(Authcontroller());
     return Scaffold(
       appBar: AppBar(

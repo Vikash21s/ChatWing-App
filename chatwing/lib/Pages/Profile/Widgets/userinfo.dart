@@ -1,12 +1,16 @@
 import 'package:chatwing/Config/images.dart';
+import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class LoginUserInfo extends StatelessWidget {
   const LoginUserInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ProfileController profileController = Get.put(ProfileController());
     return Container(
       padding: EdgeInsets.all(20),
       //height: 100,
@@ -31,20 +35,26 @@ class LoginUserInfo extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Vikash Sharma",
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
+                    Obx(
+                      () => Text(
+                        profileController.currentUser.value.name! == null
+                            ? "User"
+                            : profileController.currentUser.value.name!,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(height: 0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "mrvikashsharma75@gmail.com",
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
+                    Obx(
+                      () => Text(
+                        profileController.currentUser.value.email!,
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(height: 20),

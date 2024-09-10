@@ -39,6 +39,7 @@ class Authcontroller extends GetxController {
       );
       await initUser(email, name);
       print("Account Created 🔥🔥🔥🔥🔥"); // emoji kese denge..?
+      Get.offAllNamed("/homePage");
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The pasword provided is too weak.');
@@ -60,6 +61,7 @@ class Authcontroller extends GetxController {
     var newUser = UserModel(
       email: email,
       name: name,
+      id: auth.currentUser!.uid,
     );
 
     try {
