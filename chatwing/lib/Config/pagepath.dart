@@ -1,8 +1,8 @@
 import 'package:chatwing/Pages/Auth/authpage.dart';
 import 'package:chatwing/Pages/Chat/ChatPage.dart';
 import 'package:chatwing/Pages/HomePage/homepage.dart';
-import 'package:chatwing/Pages/Profile/profilepage.dart';
-import 'package:chatwing/Pages/Profile/updateprofile.dart';
+import 'package:chatwing/Pages/UserProfile/profilepage.dart';
+import 'package:chatwing/Pages/UserProfile/updateprofile.dart';
 import 'package:get/get.dart';
 
 var pagePath = [
