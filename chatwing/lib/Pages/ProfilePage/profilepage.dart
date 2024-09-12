@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:chatwing/Controller/authcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Widget/primarybutton.dart';
@@ -25,9 +26,18 @@ class ProfilePage extends StatelessWidget {
     ImagePickerController imagePickerController =
         Get.put(ImagePickerController());
     RxString imagePath = "".obs;
+    Authcontroller authController = Get.put(Authcontroller());
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              authController.logoutUser();
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -93,8 +103,11 @@ class ProfilePage extends StatelessWidget {
                                             BorderRadius.circular(100),
                                       ),
                                       child: profileController.currentUser.value
-                                                  .profileImage ==
-                                              ""
+                                                      .profileImage ==
+                                                  "" ||
+                                              profileController.currentUser
+                                                      .value.profileImage ==
+                                                  null
                                           ? Icon(
                                               Icons.image,
                                             )
