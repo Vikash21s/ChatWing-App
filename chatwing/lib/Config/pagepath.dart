@@ -21,14 +21,14 @@ var pagePath = [
     page: () => const ChatPage(),
     transition: Transition.zoom, // change page slide
   ),
-  GetPage(
-    name: "/profilePage",
-    page: () => ProfilePage(),
-    transition: Transition.rightToLeft, // change page slide
-  ),
-  GetPage(
-    name: "/updateProfilePage",
-    page: () => UpdateProfile(),
-    transition: Transition.rightToLeft, // change page slide
-  ),
+  // GetPage(
+  //   name: "/profilePage",
+  //   page: () => UserProfilePage(),
+  //   transition: Transition.rightToLeft, // change page slide
+  // ),
+  // GetPage(
+  //   name: "/updateProfilePage",
+  //   page: () => UserUpdateProfile(),
+  //   transition: Transition.rightToLeft, // change page slide
+  // ),
 ];

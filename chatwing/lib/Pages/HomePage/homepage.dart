@@ -3,6 +3,7 @@ import 'package:chatwing/Config/strings.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/tabbar.dart';
+import 'package:chatwing/Pages/ProfilePage/profilepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -45,7 +46,8 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
           ),
           IconButton(
             onPressed: () {
-              Get.toNamed("/profilePage");
+              // Get.toNamed("/profilePage");
+              Get.to(ProfilePage());
             },
             icon: Icon(
               Icons.more_vert,
