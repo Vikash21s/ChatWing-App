@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Widget/primarybutton.dart';
 import 'package:flutter/foundation.dart';
@@ -19,6 +22,9 @@ class ProfilePage extends StatelessWidget {
         text: profileController.currentUser.value.phoneNumber);
     TextEditingController about =
         TextEditingController(text: profileController.currentUser.value.about);
+    ImagePickerController imagePickerController =
+        Get.put(ImagePickerController());
+    RxString imagePath = "".obs;
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile"),
@@ -43,14 +49,66 @@ class ProfilePage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CircleAvatar(
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.background,
-                              radius: 80,
-                              child: Icon(
-                                Icons.image,
-                              ),
-                            ),
+                            Obx(
+                              () => isEdit.value
+                                  ? InkWell(
+                                      onTap: () async {
+                                        imagePath.value =
+                                            await imagePickerController
+                                                .pickImage();
+                                        print("Image Picked" + imagePath.value);
+                                      },
+                                      child: Container(
+                                        height: 200,
+                                        width: 200,
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .background,
+                                          borderRadius:
+                                              BorderRadius.circular(100),
+                                        ),
+                                        child: imagePath.value == ""
+                                            ? Icon(
+                                                Icons.add,
+                                              )
+                                            : ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(100),
+                                                child: Image.file(
+                                                  File(imagePath.value),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                      ),
+                                    )
+                                  : Container(
+                                      height: 200,
+                                      width: 200,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .background,
+                                        borderRadius:
+                                            BorderRadius.circular(100),
+                                      ),
+                                      child: profileController.currentUser.value
+                                                  .profileImage ==
+                                              ""
+                                          ? Icon(
+                                              Icons.image,
+                                            )
+                                          : ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(100),
+                                              child: Image.network(
+                                                profileController.currentUser
+                                                    .value.profileImage!,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                    ),
+                            )
                           ],
                         ),
                         SizedBox(height: 20),
@@ -114,7 +172,13 @@ class ProfilePage extends StatelessWidget {
                                   ? PrimaryButton(
                                       btnName: "Save",
                                       icon: Icons.save,
-                                      ontap: () {
+                                      ontap: () async {
+                                        await profileController.updateProfile(
+                                          imagePath.value,
+                                          name.text,
+                                          about.text,
+                                          phone.text,
+                                        );
                                         isEdit.value = false;
                                       },
                                     )

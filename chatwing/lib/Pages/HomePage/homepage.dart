@@ -1,5 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Config/strings.dart';
+import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/tabbar.dart';
@@ -21,6 +22,9 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
     ProfileController profileController = Get.put(ProfileController());
+
+    ImagePickerController imagePickerController =
+        Get.put(ImagePickerController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
@@ -39,7 +43,9 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              imagePickerController.pickImage();
+            },
             icon: Icon(
               Icons.search,
             ),
