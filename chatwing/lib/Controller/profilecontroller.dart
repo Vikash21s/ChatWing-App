@@ -41,14 +41,18 @@ class ProfileController extends GetxController {
     try {
       final imageLink = await uploadFileToFirebase(imageUrl);
       final updatedUser = UserModel(
+        id: auth.currentUser!.uid,
+        email: auth.currentUser!.email,
         name: name,
         about: about,
-        profileImage: imageLink,
+        profileImage:
+            imageUrl == "" ? currentUser.value.profileImage : imageLink,
         phoneNumber: number,
       );
       await db.collection("users").doc(auth.currentUser!.uid).set(
             updatedUser.toJson(),
           );
+      await getUserDetails();
     } catch (ex) {
       print(ex);
     }
