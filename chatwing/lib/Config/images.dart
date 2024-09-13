@@ -3,6 +3,8 @@ class AssetsImage {
   static const imagesPath = "assets/Images";
 
   //PNG Images Only
+  static const defaultProfileUrl =
+      "https://firebasestorage.googleapis.com/v0/b/chat-wing-chat-app.appspot.com/o/boy_pic.png?alt=media&token=ad3c6469-60c0-4a55-bff4-5ab64ed05f83";
   static const boyPic = "$imagesPath/boy_pic.png";
   static const girlPic = "$imagesPath/girl_pic.png";
   static const logomain = "$imagesPath/main_logo.png";
