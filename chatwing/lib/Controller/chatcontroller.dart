@@ -35,6 +35,7 @@ class ChatController extends GetxController {
       senderId: auth.currentUser!.uid,
       receiverId: targetUserId,
       senderName: controller.currentUser.value.name,
+      timestamp: DateTime.now().toString(),
     );
     try {
       await db
@@ -49,5 +50,20 @@ class ChatController extends GetxController {
       print(e);
     }
     isLoading.value = false;
+  }
+
+  Stream<List<ChatModel>> getMessages(String targetUserId) {
+    String roomId = getRoomId(targetUserId);
+    return db
+        .collection("chats")
+        .doc(roomId)
+        .collection("message")
+        .orderBy("timestamp", descending: true)
+        .snapshots()
+        .map((snapshot) => snapshot.docs
+            .map(
+              (doc) => ChatModel.fromJson(doc.data()),
+            )
+            .toList());
   }
 }
