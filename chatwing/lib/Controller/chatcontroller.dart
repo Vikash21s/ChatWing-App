@@ -1,3 +1,4 @@
+import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/chatmodel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,6 +11,7 @@ class ChatController extends GetxController {
   final db = FirebaseFirestore.instance;
   RxBool isLoading = false.obs;
   var uuid = Uuid();
+  ProfileController controller = Get.put(ProfileController());
 
   String getRoomId(String targetUserId) {
     String currentUserId = auth.currentUser!.uid;
@@ -21,13 +23,18 @@ class ChatController extends GetxController {
   }
 
   Future<void> sendMessage(
-      String targetUserId, String message, senderName) async {
+    String targetUserId,
+    String message,
+  ) async {
     isLoading.value = true;
     String chatId = uuid.v6();
     String roomId = getRoomId(targetUserId);
     var newChat = ChatModel(
       id: chatId,
       message: message,
+      senderId: auth.currentUser!.uid,
+      receiverId: targetUserId,
+      senderName: controller.currentUser.value.name,
     );
     try {
       await db
