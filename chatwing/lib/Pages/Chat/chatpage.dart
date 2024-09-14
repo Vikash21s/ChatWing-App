@@ -1,13 +1,21 @@
 import 'package:chatwing/Config/images.dart';
+import 'package:chatwing/Controller/chatcontroller.dart';
+import 'package:chatwing/Model/chatmodel.dart';
+import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Pages/Chat/Widgets/chatbubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({super.key});
+  final UserModel userModel;
+  const ChatPage({super.key, required this.userModel});
 
   @override
   Widget build(BuildContext context) {
+    ChatController chatController = Get.put(ChatController());
+    TextEditingController messageController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -17,7 +25,8 @@ class ChatPage extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Vikash Sharma", style: Theme.of(context).textTheme.bodyLarge),
+            Text(userModel.name ?? "User_101",
+                style: Theme.of(context).textTheme.bodyLarge),
             Text(
               "online",
               style: Theme.of(context).textTheme.labelSmall,
@@ -62,7 +71,8 @@ class ChatPage extends StatelessWidget {
             SizedBox(width: 10),
             Expanded(
               child: TextField(
-                decoration: InputDecoration(
+                controller: messageController,
+                decoration: const InputDecoration(
                     filled: false,
                     hintText:
                         "Type message ..."), // ye text box me hint ke liye use hua hai
@@ -77,12 +87,21 @@ class ChatPage extends StatelessWidget {
                 width: 25,
               ),
             ),
-            Container(
-              width: 35,
-              height: 38,
-              child: SvgPicture.asset(
-                AssetsImage.chatSendSvg,
-                width: 25,
+            InkWell(
+              onTap: () {
+                if (messageController.text.isNotEmpty) {
+                  chatController.sendMessage(
+                      userModel.id!, messageController.text);
+                  messageController.clear();
+                }
+              },
+              child: Container(
+                width: 35,
+                height: 38,
+                child: SvgPicture.asset(
+                  AssetsImage.chatSendSvg,
+                  width: 25,
+                ),
               ),
             ), // yha se send box ka size change kr skte hain
           ],

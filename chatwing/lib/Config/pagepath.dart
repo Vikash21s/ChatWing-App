@@ -18,11 +18,7 @@ var pagePath = [
     page: () => const Homepage(),
     transition: Transition.rightToLeft, // change page slide
   ),
-  GetPage(
-    name: "/chatPage",
-    page: () => const ChatPage(),
-    transition: Transition.rightToLeft, // change page slide
-  ),
+
   GetPage(
     name: "/profilePage",
     page: () => ProfilePage(),
