@@ -1,6 +1,7 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/authcontroller.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
+import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Pages/UserProfile/Widgets/userinfo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,7 +9,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class UserProfilePage extends StatelessWidget {
-  const UserProfilePage({super.key});
+  final UserModel userModel;
+  const UserProfilePage({super.key, required this.userModel});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,12 @@ class UserProfilePage extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            LoginUserInfo(),
+            LoginUserInfo(
+              profileImage:
+                  userModel.profileImage ?? AssetsImage.defaultProfileUrl,
+              userName: userModel.name ?? "User_2112",
+              userEmail: userModel.email ?? "",
+            ),
             Spacer(),
             ElevatedButton(
               onPressed: () {

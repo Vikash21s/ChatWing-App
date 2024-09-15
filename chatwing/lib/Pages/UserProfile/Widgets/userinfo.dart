@@ -6,7 +6,14 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class LoginUserInfo extends StatelessWidget {
-  const LoginUserInfo({super.key});
+  final String profileImage;
+  final String userName;
+  final String userEmail;
+  const LoginUserInfo(
+      {super.key,
+      required this.profileImage,
+      required this.userName,
+      required this.userEmail});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +33,16 @@ class LoginUserInfo extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      AssetsImage.boyPic,
+                    Container(
+                      width: 150,
+                      height: 150,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Image.network(
+                          profileImage,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -35,26 +50,20 @@ class LoginUserInfo extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Obx(
-                      () => Text(
-                        profileController.currentUser.value.name! == null
-                            ? "User"
-                            : profileController.currentUser.value.name!,
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                    )
+                    Text(
+                      userName,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
                   ],
                 ),
                 SizedBox(height: 0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Obx(
-                      () => Text(
-                        profileController.currentUser.value.email!,
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
-                    )
+                    Text(
+                      userEmail,
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
                   ],
                 ),
                 SizedBox(height: 20),

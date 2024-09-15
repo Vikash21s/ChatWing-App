@@ -25,7 +25,9 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         leading: InkWell(
           onTap: () {
-            Get.to(UserProfilePage());
+            Get.to(UserProfilePage(
+              userModel: userModel,
+            ));
           },
           child: Padding(
             padding: const EdgeInsets.only(left: 10),
@@ -34,7 +36,9 @@ class ChatPage extends StatelessWidget {
         ),
         title: InkWell(
           onTap: () {
-            Get.to(UserProfilePage());
+            Get.to(UserProfilePage(
+              userModel: userModel,
+            ));
           },
           child: Row(
             children: [
