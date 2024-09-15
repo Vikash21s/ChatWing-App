@@ -4,6 +4,7 @@ import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/chatmodel.dart';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Pages/Chat/Widgets/chatbubble.dart';
+import 'package:chatwing/Pages/UserProfile/profilepage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,20 +23,35 @@ class ChatPage extends StatelessWidget {
     ProfileController profileController = Get.put(ProfileController());
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Image.asset(AssetsImage.boyPic),
+        leading: InkWell(
+          onTap: () {
+            Get.to(UserProfilePage());
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Image.asset(AssetsImage.boyPic),
+          ),
         ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(userModel.name ?? "User_101",
-                style: Theme.of(context).textTheme.bodyLarge),
-            Text(
-              "online",
-              style: Theme.of(context).textTheme.labelSmall,
-            )
-          ],
+        title: InkWell(
+          onTap: () {
+            Get.to(UserProfilePage());
+          },
+          child: Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment
+                    .start, // if remove Row wrapping on this code we can change tap
+                children: [
+                  Text(userModel.name ?? "User_101",
+                      style: Theme.of(context).textTheme.bodyLarge),
+                  Text(
+                    "online",
+                    style: Theme.of(context).textTheme.labelSmall,
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
         actions: [
           IconButton(
@@ -95,7 +111,7 @@ class ChatPage extends StatelessWidget {
               onTap: () {
                 if (messageController.text.isNotEmpty) {
                   chatController.sendMessage(
-                      userModel.id!, messageController.text);
+                      userModel.id!, messageController.text, userModel);
                   messageController.clear();
                 }
               },

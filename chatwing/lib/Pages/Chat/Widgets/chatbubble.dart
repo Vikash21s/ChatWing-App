@@ -41,9 +41,9 @@ class ChatBubble extends StatelessWidget {
                       )
                     : BorderRadius.only(
                         topLeft: Radius.circular(15), // we can change text box
-                        topRight: Radius.circular(0),
+                        topRight: Radius.circular(15),
                         bottomLeft: Radius.circular(17),
-                        bottomRight: Radius.circular(15),
+                        bottomRight: Radius.circular(0),
                       ),
               ),
               child: imageUrl == ""

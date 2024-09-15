@@ -1,6 +1,7 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/chatcontroller.dart';
 import 'package:chatwing/Controller/contactcontroller.dart';
+import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Pages/Chat/chatpage.dart';
 import 'package:chatwing/Pages/ContactPage/Widgets/contactsearch.dart';
 import 'package:chatwing/Pages/ContactPage/Widgets/newcontacttile.dart';
@@ -18,6 +19,7 @@ class ContactPage extends StatelessWidget {
     RxBool isSearchEnable = false.obs;
     ContactController contactController = Get.put(ContactController());
     ChatController chatController = Get.put(ChatController());
+    ProfileController profileController = Get.put(ProfileController());
     return Scaffold(
       appBar: AppBar(
         title: Text("Select contact"),
@@ -68,12 +70,14 @@ class ContactPage extends StatelessWidget {
                           Get.to(ChatPage(userModel: e));
                         },
                         child: ChatTile(
-                          imageUrl:
-                              e.profileImage ?? AssetsImage.defaultProfileUrl,
-                          name: e.name ?? "User 101",
-                          lastChat: e.about ?? "Never Giveup",
-                          lastTime: "",
-                        ),
+                            imageUrl:
+                                e.profileImage ?? AssetsImage.defaultProfileUrl,
+                            name: e.name ?? "User 101",
+                            lastChat: e.about ?? "Never Giveup",
+                            lastTime: e.email ==
+                                    profileController.currentUser.value.email
+                                ? "You  "
+                                : " "),
                       ),
                     )
                     .toList(),
