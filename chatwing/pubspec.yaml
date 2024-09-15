@@ -45,6 +45,7 @@ dependencies:
   firebase_storage: ^12.3.0
   uuid: ^4.5.0
   intl: ^0.19.0  #for date
+  cached_network_image: ^3.4.1 # for cached network image
 
 dev_dependencies:
   flutter_test:

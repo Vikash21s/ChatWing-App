@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatwing/Controller/authcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
@@ -114,12 +115,13 @@ class ProfilePage extends StatelessWidget {
                                           : ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(100),
-                                              child: Image.network(
-                                                profileController.currentUser
-                                                    .value.profileImage!,
+                                              child: CachedNetworkImage(
+                                                imageUrl: profileController
+                                                    .currentUser
+                                                    .value
+                                                    .profileImage!,
                                                 fit: BoxFit.cover,
-                                              ),
-                                            ),
+                                              )),
                                     ),
                             )
                           ],
