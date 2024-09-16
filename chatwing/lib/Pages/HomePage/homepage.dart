@@ -1,5 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Config/strings.dart';
+import 'package:chatwing/Controller/contactcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
@@ -22,6 +23,7 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
     ProfileController profileController = Get.put(ProfileController());
+    ContactController contactController = Get.put(ContactController());
 
     ImagePickerController imagePickerController =
         Get.put(ImagePickerController());
@@ -44,7 +46,7 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
         actions: [
           IconButton(
             onPressed: () {
-              imagePickerController.pickImage();
+              contactController.getChatRoomList();
             },
             icon: Icon(
               Icons.search,

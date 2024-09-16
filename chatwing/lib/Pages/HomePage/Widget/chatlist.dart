@@ -1,4 +1,6 @@
 import 'package:chatwing/Config/images.dart';
+import 'package:chatwing/Controller/contactcontroller.dart';
+import 'package:chatwing/Pages/Chat/chatpage.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,50 +11,26 @@ class ChatList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        InkWell(
-          onTap: () {
-            Get.toNamed("/chatPage");
-          },
-          child: ChatTile(
-            imageUrl: AssetsImage.defaultProfileUrl,
-            name: "Vikash Sharma",
-            lastChat: "Okay Bye",
-            lastTime: "09:21 PM",
-          ),
-        ),
-        ChatTile(
-          imageUrl: AssetsImage.defaultProfileUrl,
-          name: "Rahul",
-          lastChat: "Okay Bye",
-          lastTime: "09:21 PM",
-        ),
-        ChatTile(
-          imageUrl: AssetsImage.defaultProfileUrl,
-          name: "Deepak",
-          lastChat: "Okay Bye",
-          lastTime: "09:25 PM",
-        ),
-        ChatTile(
-          imageUrl: AssetsImage.defaultProfileUrl,
-          name: "Khushi",
-          lastChat: "Okay Bye",
-          lastTime: "10:11 PM",
-        ),
-        ChatTile(
-          imageUrl: AssetsImage.defaultProfileUrl,
-          name: "Barkha mam",
-          lastChat: "Okay Bye",
-          lastTime: "05:15 PM",
-        ),
-        ChatTile(
-          imageUrl: AssetsImage.defaultProfileUrl,
-          name: "Bunty",
-          lastChat: "Hey!",
-          lastTime: "05:15 PM",
-        ),
-      ],
+    ContactController contactController = Get.put(ContactController());
+    return Obx(
+      () => ListView(
+        children: contactController.chatRoomList
+            .map(
+              (e) => InkWell(
+                onTap: () {
+                  Get.to(ChatPage(userModel: e.receiver!));
+                },
+                child: ChatTile(
+                  imageUrl:
+                      e.receiver!.profileImage ?? AssetsImage.defaultProfileUrl,
+                  name: e.receiver!.name ?? "User_101",
+                  lastChat: e.lastMessage ?? "Last Message",
+                  lastTime: e.lastMessageTimestamp ?? "Last Time",
+                ),
+              ),
+            )
+            .toList(),
+      ),
     );
   }
 }
