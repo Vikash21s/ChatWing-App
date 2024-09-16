@@ -12,25 +12,30 @@ class ChatList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ContactController contactController = Get.put(ContactController());
-    return Obx(
-      () => ListView(
-        children: contactController.chatRoomList
-            .map(
-              (e) => InkWell(
-                onTap: () {
-                  Get.to(ChatPage(userModel: e.receiver!));
-                },
-                child: ChatTile(
-                  imageUrl:
-                      e.receiver!.profileImage ?? AssetsImage.defaultProfileUrl,
-                  name: e.receiver!.name ?? "User_101",
-                  lastChat: e.lastMessage ?? "Last Message",
-                  lastTime: e.lastMessageTimestamp ?? "Last Time",
+    return RefreshIndicator(
+      child: Obx(
+        () => ListView(
+          children: contactController.chatRoomList
+              .map(
+                (e) => InkWell(
+                  onTap: () {
+                    Get.to(ChatPage(userModel: e.receiver!));
+                  },
+                  child: ChatTile(
+                    imageUrl: e.receiver!.profileImage ??
+                        AssetsImage.defaultProfileUrl,
+                    name: e.receiver!.name ?? "User_101",
+                    lastChat: e.lastMessage ?? "Last Message",
+                    lastTime: e.lastMessageTimestamp ?? "Last Time",
+                  ),
                 ),
-              ),
-            )
-            .toList(),
+              )
+              .toList(),
+        ),
       ),
+      onRefresh: () {
+        return contactController.getChatRoomList();
+      },
     );
   }
 }
