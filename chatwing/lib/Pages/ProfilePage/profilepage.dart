@@ -121,6 +121,11 @@ class ProfilePage extends StatelessWidget {
                                                     .value
                                                     .profileImage!,
                                                 fit: BoxFit.cover,
+                                                placeholder: (context, url) =>
+                                                    CircularProgressIndicator(),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        Icon(Icons.error),
                                               )),
                                     ),
                             )
