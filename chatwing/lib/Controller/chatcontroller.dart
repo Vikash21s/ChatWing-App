@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 class ChatController extends GetxController {
-  final auth = FirebaseAuth.instance;
+  final auth = FirebaseAuth.instance; // miner changes
   final db = FirebaseFirestore.instance;
   RxBool isLoading = false.obs;
   var uuid = Uuid();
