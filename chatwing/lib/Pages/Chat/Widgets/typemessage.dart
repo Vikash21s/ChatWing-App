@@ -25,6 +25,14 @@ class TypeMessage extends StatelessWidget {
           color: Theme.of(context).colorScheme.primaryContainer),
       child: Row(
         children: [
+          Container(
+            width: 30, // uski configuration 30, 30 hai
+            height: 30,
+            child: SvgPicture.asset(
+              AssetsImage.chatEmoji,
+              width: 25,
+            ),
+          ),
           SizedBox(width: 10),
           Expanded(
             child: TextField(
@@ -68,6 +76,7 @@ class TypeMessage extends StatelessWidget {
                         chatController.sendMessage(
                             userModel.id!, messageController.text, userModel);
                         messageController.clear();
+                        message.value = "";
                       }
                     },
                     child: Container(
