@@ -25,16 +25,36 @@ class ChatController extends GetxController {
     }
   }
 
+  UserModel getSender(UserModel currentUser, UserModel targetUser) {
+    String currentUserId = currentUser.id!;
+    String targetUserId = targetUser.id!;
+    if (currentUserId[0].codeUnitAt(0) > targetUserId[0].codeUnitAt(0)) {
+      return currentUser;
+    } else {
+      return targetUser;
+    }
+  }
+
+  UserModel getReciver(UserModel currentUser, UserModel targetUser) {
+    String currentUserId = currentUser.id!;
+    String targetUserId = targetUser.id!;
+    if (currentUserId[0].codeUnitAt(0) > targetUserId[0].codeUnitAt(0)) {
+      return targetUser;
+    } else {
+      return currentUser;
+    }
+  }
+
   Future<void> sendMessage(
-    String targetUserId,
-    String message,
-    UserModel targetUser,
-  ) async {
+      String targetUserId, String message, UserModel targetUser) async {
     isLoading.value = true;
     String chatId = uuid.v6();
     String roomId = getRoomId(targetUserId);
     DateTime timestamp = DateTime.now();
     String nowTime = DateFormat('hh:mm a').format(timestamp);
+
+    UserModel sender = getSender(controller.currentUser.value, targetUser);
+    UserModel receiver = getReciver(controller.currentUser.value, targetUser);
     var newChat = ChatModel(
       id: chatId,
       message: message,
@@ -48,15 +68,13 @@ class ChatController extends GetxController {
       id: roomId,
       lastMessage: message,
       lastMessageTimestamp: nowTime,
-      sender: controller.currentUser.value,
-      receiver: targetUser,
+      sender: sender,
+      receiver: receiver,
       timestamp: DateTime.now().toString(),
       unReadMessNo: 0,
+      //perfect chnages here
     );
     try {
-      await db.collection("chats").doc(roomId).set(
-            roomDetails.toJson(),
-          );
       await db
           .collection("chats")
           .doc(roomId)
@@ -64,6 +82,9 @@ class ChatController extends GetxController {
           .doc(chatId)
           .set(
             newChat.toJson(),
+          );
+      await db.collection("chats").doc(roomId).set(
+            roomDetails.toJson(),
           );
     } catch (e) {
       print(e);
