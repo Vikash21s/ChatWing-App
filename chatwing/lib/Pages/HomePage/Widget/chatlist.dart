@@ -20,6 +20,9 @@ class ChatList extends StatelessWidget {
           children: contactController.chatRoomList
               .map(
                 (e) => InkWell(
+                  splashColor: Colors.transparent, //
+                  highlightColor:
+                      Colors.transparent, // this is use to remove touch effect
                   onTap: () {
                     Get.to(
                       ChatPage(

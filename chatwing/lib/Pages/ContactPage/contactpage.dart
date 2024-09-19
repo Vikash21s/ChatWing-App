@@ -66,6 +66,9 @@ class ContactPage extends StatelessWidget {
                 children: contactController.userList
                     .map(
                       (e) => InkWell(
+                        splashColor: Colors.transparent, //
+                        highlightColor: Colors
+                            .transparent, // this is use to remove touch effect
                         onTap: () {
                           Get.to(ChatPage(userModel: e));
                         },

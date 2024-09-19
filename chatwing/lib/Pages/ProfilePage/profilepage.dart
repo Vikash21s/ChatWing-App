@@ -63,6 +63,9 @@ class ProfilePage extends StatelessWidget {
                             Obx(
                               () => isEdit.value
                                   ? InkWell(
+                                      splashColor: Colors.transparent, //
+                                      highlightColor: Colors
+                                          .transparent, // this is use to remove touch effect
                                       onTap: () async {
                                         imagePath.value =
                                             await imagePickerController

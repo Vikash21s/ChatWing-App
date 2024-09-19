@@ -26,6 +26,9 @@ class AuthPageBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
+                        splashColor: Colors.transparent, //
+                        highlightColor: Colors
+                            .transparent, // this is use to remove touch effect
                         onTap: () {
                           isLogin.value = true;
                         },
@@ -54,6 +57,9 @@ class AuthPageBody extends StatelessWidget {
                         ),
                       ),
                       InkWell(
+                        splashColor: Colors.transparent, //
+                        highlightColor: Colors
+                            .transparent, // this is use to remove touch effect
                         onTap: () {
                           isLogin.value = false;
                         },

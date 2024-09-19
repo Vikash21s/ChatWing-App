@@ -15,6 +15,8 @@ class NewContactTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.transparent, //
+      highlightColor: Colors.transparent, // this is use to remove touch effect
       onTap: ontap,
       child: Container(
         padding: EdgeInsets.all(10),

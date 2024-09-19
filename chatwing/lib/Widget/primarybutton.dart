@@ -13,6 +13,8 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.transparent, //
+      highlightColor: Colors.transparent, // this is use to remove touch effect
       onTap: ontap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),

@@ -24,17 +24,33 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
+          splashColor: Colors.transparent, //
+          highlightColor:
+              Colors.transparent, // this is help to remove tap colors
           onTap: () {
             Get.to(UserProfilePage(
               userModel: userModel,
             ));
           },
           child: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Image.asset(AssetsImage.boyPic),
+            padding: const EdgeInsets.all(5),
+            child: Container(
+              // width: 50,
+              // height: 50,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: Image.network(
+                  userModel.profileImage ?? AssetsImage.defaultProfileUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
         ),
         title: InkWell(
+          splashColor: Colors.transparent, //
+          highlightColor:
+              Colors.transparent, // this is use to remove touch effect
           onTap: () {
             Get.to(UserProfilePage(
               userModel: userModel,
@@ -112,6 +128,9 @@ class ChatPage extends StatelessWidget {
               ),
             ),
             InkWell(
+              splashColor: Colors.transparent, //
+              highlightColor:
+                  Colors.transparent, // this is use to remove touch effect
               onTap: () {
                 if (messageController.text.isNotEmpty) {
                   chatController.sendMessage(
