@@ -5,6 +5,7 @@ import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/chatmodel.dart';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Pages/Chat/Widgets/chatbubble.dart';
+import 'package:chatwing/Pages/Chat/Widgets/typemessage.dart';
 import 'package:chatwing/Pages/UserProfile/profilepage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -92,66 +93,8 @@ class ChatPage extends StatelessWidget {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        margin:
-            EdgeInsets.all(5), // yha se mujhe text box ka margin set krna hai
-        padding: EdgeInsets.symmetric(
-            vertical: 4,
-            horizontal: 20), // yha se text box ka size change kr skte hain
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: Theme.of(context).colorScheme.primaryContainer),
-        child: Row(
-          children: [
-            Container(
-              width: 30, // uski configuration 30, 30 hai
-              height: 30,
-              child: SvgPicture.asset(
-                AssetsImage.chatMicSvg,
-                width: 25,
-              ),
-            ),
-            SizedBox(width: 10),
-            Expanded(
-              child: TextField(
-                controller: messageController,
-                decoration: const InputDecoration(
-                    filled: false,
-                    hintText:
-                        "Type message ..."), // ye text box me hint ke liye use hua hai
-              ),
-            ),
-            SizedBox(width: 10),
-            Container(
-              width: 35, // uski configuration 30, 30 hai
-              height: 30,
-              child: SvgPicture.asset(
-                AssetsImage.chatGallarySvg,
-                width: 25,
-              ),
-            ),
-            InkWell(
-              splashColor: Colors.transparent, //
-              highlightColor:
-                  Colors.transparent, // this is use to remove touch effect
-              onTap: () {
-                if (messageController.text.isNotEmpty) {
-                  chatController.sendMessage(
-                      userModel.id!, messageController.text, userModel);
-                  messageController.clear();
-                }
-              },
-              child: Container(
-                width: 35,
-                height: 38,
-                child: SvgPicture.asset(
-                  AssetsImage.chatSendSvg,
-                  width: 25,
-                ),
-              ),
-            ), // yha se send box ka size change kr skte hain
-          ],
-        ),
+      floatingActionButton: TypeMessage(
+        userModel: userModel,
       ),
       body: Padding(
           padding: EdgeInsets.only(bottom: 70, top: 10, left: 10, right: 10),
