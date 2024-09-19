@@ -93,6 +93,7 @@ class ChatController extends GetxController {
           .set(
             newChat.toJson(),
           );
+      selectedImagePath.value = "";
       await db.collection("chats").doc(roomId).set(
             roomDetails.toJson(),
           );

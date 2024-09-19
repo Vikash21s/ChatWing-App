@@ -90,10 +90,12 @@ class TypeMessage extends StatelessWidget {
                     child: Container(
                       width: 35,
                       height: 38,
-                      child: SvgPicture.asset(
-                        AssetsImage.chatSendSvg,
-                        width: 25,
-                      ),
+                      child: chatController.isLoading.value
+                          ? CircularProgressIndicator()
+                          : SvgPicture.asset(
+                              AssetsImage.chatSendSvg,
+                              width: 25,
+                            ),
                     ),
                   )
                 : Container(
