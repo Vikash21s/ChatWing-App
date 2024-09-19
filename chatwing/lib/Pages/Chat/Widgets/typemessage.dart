@@ -55,8 +55,57 @@ class TypeMessage extends StatelessWidget {
             () => chatController.selectedImagePath.value == ""
                 ? InkWell(
                     onTap: () async {
-                      chatController.selectedImagePath.value =
-                          await imagePickerController.pickImage();
+                      // chatController.selectedImagePath.value =
+                      //     await imagePickerController.pickImage();
+                      Get.bottomSheet(Container(
+                        height: 150,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                height:
+                                    90, // change camera height default 70 70
+                                width: 90,
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .background,
+                                    borderRadius: BorderRadius.circular(100)),
+                                child: Icon(
+                                  Icons.camera_alt_rounded,
+                                  size: 30,
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {},
+                              child: Container(
+                                height:
+                                    90, // change camera height default 70 70
+                                width: 90,
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .background,
+                                    borderRadius: BorderRadius.circular(100)),
+                                child: Icon(
+                                  Icons.photo,
+                                  size: 30,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ));
                     },
                     child: Container(
                       width: 35, // uski configuration 30, 30 hai

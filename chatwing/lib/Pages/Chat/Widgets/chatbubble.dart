@@ -28,20 +28,20 @@ class ChatBubble extends StatelessWidget {
             isComming ? CrossAxisAlignment.start : CrossAxisAlignment.end,
         children: [
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             constraints: BoxConstraints(
                 //minWidth: 100,
                 maxWidth: MediaQuery.sizeOf(context).width / 1.3),
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primaryContainer,
               borderRadius: isComming
-                  ? BorderRadius.only(
+                  ? const BorderRadius.only(
                       topLeft: Radius.circular(0), // we can change text box
                       topRight: Radius.circular(15),
                       bottomLeft: Radius.circular(17),
                       bottomRight: Radius.circular(15),
                     )
-                  : BorderRadius.only(
+                  : const BorderRadius.only(
                       topLeft: Radius.circular(15), // we can change text box
                       topRight: Radius.circular(15),
                       bottomLeft: Radius.circular(17),
@@ -59,11 +59,11 @@ class ChatBubble extends StatelessWidget {
                             imageUrl: imageUrl,
                             fit: BoxFit.cover,
                             placeholder: (context, url) =>
-                                CircularProgressIndicator(),
+                                const CircularProgressIndicator(),
                             errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
+                                const Icon(Icons.error),
                           )),
-                      message == "" ? Container() : SizedBox(height: 10),
+                      message == "" ? Container() : const SizedBox(height: 10),
                       message == "" ? Container() : Text(message),
                     ],
                   ),
@@ -84,7 +84,7 @@ class ChatBubble extends StatelessWidget {
                           time,
                           style: Theme.of(context).textTheme.labelMedium,
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         SvgPicture.asset(
                           AssetsImage.chatStatusSvg,
                           width: 20,
