@@ -1,5 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/chatcontroller.dart';
+import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,6 +16,9 @@ class TypeMessage extends StatelessWidget {
     ChatController chatController = Get.put(ChatController());
     TextEditingController messageController = TextEditingController();
     RxString message = "".obs;
+    ImagePickerController imagePickerController =
+        Get.put(ImagePickerController());
+
     return Container(
       margin: EdgeInsets.all(5), // yha se mujhe text box ka margin set krna hai
       padding: EdgeInsets.symmetric(
@@ -47,32 +51,36 @@ class TypeMessage extends StatelessWidget {
             ),
           ),
           SizedBox(width: 10),
-          Container(
-            width: 35, // uski configuration 30, 30 hai
-            height: 30,
-            child: SvgPicture.asset(
-              AssetsImage.chatGallarySvg,
-              width: 25,
-            ),
+          Obx(
+            () => chatController.selectedImagePath.value == ""
+                ? InkWell(
+                    onTap: () async {
+                      chatController.selectedImagePath.value =
+                          await imagePickerController.pickImage();
+                    },
+                    child: Container(
+                      width: 35, // uski configuration 30, 30 hai
+                      height: 30,
+                      child: SvgPicture.asset(
+                        AssetsImage.chatGallarySvg,
+                        width: 25,
+                      ),
+                    ),
+                  )
+                : SizedBox(),
           ),
           SizedBox(width: 10),
 
           Obx(
-            () => message.value == ""
-                ? Container(
-                    width: 30, // uski configuration 30, 30 hai
-                    height: 30,
-                    child: SvgPicture.asset(
-                      AssetsImage.chatMicSvg,
-                      width: 25,
-                    ),
-                  )
-                : InkWell(
+            () => message.value != "" ||
+                    chatController.selectedImagePath.value != ""
+                ? InkWell(
                     splashColor: Colors.transparent, //
                     highlightColor: Colors
                         .transparent, // this is use to remove touch effect
                     onTap: () {
-                      if (messageController.text.isNotEmpty) {
+                      if (messageController.text.isNotEmpty ||
+                          chatController.selectedImagePath.value.isNotEmpty) {
                         chatController.sendMessage(
                             userModel.id!, messageController.text, userModel);
                         messageController.clear();
@@ -86,6 +94,14 @@ class TypeMessage extends StatelessWidget {
                         AssetsImage.chatSendSvg,
                         width: 25,
                       ),
+                    ),
+                  )
+                : Container(
+                    width: 30, // uski configuration 30, 30 hai
+                    height: 30,
+                    child: SvgPicture.asset(
+                      AssetsImage.chatMicSvg,
+                      width: 25,
                     ),
                   ),
           ), // yha se send box ka size change kr skte hain
