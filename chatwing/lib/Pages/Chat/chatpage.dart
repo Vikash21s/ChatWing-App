@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/chatcontroller.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
@@ -38,12 +39,14 @@ class ChatPage extends StatelessWidget {
               // width: 50,
               // height: 50,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Image.network(
-                  userModel.profileImage ?? AssetsImage.defaultProfileUrl,
-                  fit: BoxFit.cover,
-                ),
-              ),
+                  borderRadius: BorderRadius.circular(100),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        userModel.profileImage ?? AssetsImage.defaultProfileUrl,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  )),
             ),
           ),
         ),

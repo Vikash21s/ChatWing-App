@@ -26,38 +26,43 @@ class ChatTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              Container(
-                height: 70,
-                width: 70,
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: CachedNetworkImage(
-                      imageUrl: imageUrl,
-                      fit: BoxFit.cover,
-                      width: 70,
-                      placeholder: (context, url) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
-                    )),
-              ),
-              SizedBox(width: 15),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name,
-                    style: Theme.of(context).textTheme.bodyLarge,
+          Expanded(
+            child: Row(
+              children: [
+                Container(
+                  height: 70,
+                  width: 70,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: CachedNetworkImage(
+                        imageUrl: imageUrl,
+                        fit: BoxFit.cover,
+                        width: 70,
+                        placeholder: (context, url) =>
+                            CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      )),
+                ),
+                SizedBox(width: 15),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      SizedBox(height: 2), // we can change both text distance
+                      Text(
+                        lastChat,
+                        maxLines: 1,
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 2), // we can change both text distance
-                  Text(
-                    lastChat,
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
           Text(
             lastTime,
