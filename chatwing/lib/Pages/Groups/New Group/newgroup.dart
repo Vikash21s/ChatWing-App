@@ -1,6 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/contactcontroller.dart';
 import 'package:chatwing/Controller/groupcontroller.dart';
+import 'package:chatwing/Pages/Groups/New%20Group/grouptitle.dart';
+import 'package:chatwing/Pages/Groups/New%20Group/selectedmemberlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,26 +19,29 @@ class NewGroup extends StatelessWidget {
       appBar: AppBar(
         title: Text('New Group'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.arrow_forward),
+      floatingActionButton: Obx(
+        () => FloatingActionButton(
+          backgroundColor: groupController.groupMembers.isEmpty
+              ? Colors.grey
+              : Theme.of(context).colorScheme.primary,
+          onPressed: () {
+            if (groupController.groupMembers.isEmpty) {
+              Get.snackbar("Error", "Please select atleast one member");
+            } else {
+              Get.to(GroupTitle());
+            }
+          },
+          child: Icon(
+            Icons.arrow_forward,
+            color: Theme.of(context).colorScheme.onBackground,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            Obx(
-              () => Row(
-                  children: groupController.groupMembers
-                      .map(
-                        (e) => Container(
-                          width: 100,
-                          height: 100,
-                          color: Colors.red,
-                        ),
-                      )
-                      .toList()),
-            ),
+            SelectedMembers(),
             SizedBox(height: 10),
             Row(
               children: [
@@ -69,6 +75,8 @@ class NewGroup extends StatelessWidget {
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
                         return InkWell(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () {
                             groupController.selectMember(snapshot.data![index]);
                           },
