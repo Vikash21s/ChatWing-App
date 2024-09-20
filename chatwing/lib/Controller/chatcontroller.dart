@@ -114,10 +114,12 @@ class ChatController extends GetxController {
         .collection("message")
         .orderBy("timestamp", descending: true)
         .snapshots()
-        .map((snapshot) => snapshot.docs
-            .map(
-              (doc) => ChatModel.fromJson(doc.data()),
-            )
-            .toList());
+        .map(
+          (snapshot) => snapshot.docs
+              .map(
+                (doc) => ChatModel.fromJson(doc.data()),
+              )
+              .toList(),
+        );
   }
 }
