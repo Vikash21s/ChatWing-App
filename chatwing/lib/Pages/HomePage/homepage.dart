@@ -3,6 +3,7 @@ import 'package:chatwing/Config/strings.dart';
 import 'package:chatwing/Controller/contactcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
+import 'package:chatwing/Pages/Groups/groupspage.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/tabbar.dart';
 import 'package:chatwing/Pages/ProfilePage/profilepage.dart';
@@ -78,13 +79,7 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
         padding: const EdgeInsets.all(10),
         child: TabBarView(controller: tabController, children: [
           ChatList(),
-          ListView(
-            children: [
-              ListTile(
-                title: Text("Name Vikash"),
-              )
-            ],
-          ),
+          GroupsPage(),
           ListView(
             children: [
               ListTile(
