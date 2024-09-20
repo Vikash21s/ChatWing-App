@@ -1,3 +1,4 @@
+import 'package:chatwing/Controller/contactcontroller.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/chatmodel.dart';
 import 'package:chatwing/Model/chatroommodel.dart';
@@ -16,6 +17,7 @@ class ChatController extends GetxController {
   var uuid = Uuid();
   RxString selectedImagePath = "".obs;
   ProfileController profileController = Get.put(ProfileController());
+  ContactController contactController = Get.put(ContactController());
 
   String getRoomId(String targetUserId) {
     String currentUserId = auth.currentUser!.uid;
@@ -97,6 +99,7 @@ class ChatController extends GetxController {
       await db.collection("chats").doc(roomId).set(
             roomDetails.toJson(),
           );
+      await contactController.saveContact(targetUser);
     } catch (e) {
       print(e);
     }
