@@ -8,6 +8,7 @@ import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/groupmodel.dart';
 import 'package:chatwing/Pages/Chat/Widgets/chatbubble.dart';
 import 'package:chatwing/Pages/GroupChat/grouptypemessage.dart';
+import 'package:chatwing/Pages/GroupInfo/groupinfo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -56,9 +57,7 @@ class GroupChatPage extends StatelessWidget {
           highlightColor:
               Colors.transparent, // this is use to remove touch effect
           onTap: () {
-            // Get.to(UserProfilePage(
-            //   userModel: userModel,
-            // ));
+            Get.to(GroupInfo());
           },
           child: Row(
             children: [
