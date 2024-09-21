@@ -19,21 +19,32 @@ class GroupTitle extends StatelessWidget {
     ImagePickerController imagePickerController =
         Get.put(ImagePickerController());
     RxString imagePath = "".obs;
-    //RxString groupName = "".obs;
-    TextEditingController groupName = TextEditingController();
+    RxString groupName = "".obs;
 
     return Scaffold(
       appBar: AppBar(
         title: Text("New Group"),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: () {
-          groupController.createGroup(groupName.text, imagePath.value);
-        },
-        child: Icon(
-          Icons.done,
-          color: Theme.of(context).colorScheme.onBackground,
+      floatingActionButton: Obx(
+        () => FloatingActionButton(
+          backgroundColor: groupName.isEmpty
+              ? Colors.grey
+              : Theme.of(context).colorScheme.primary,
+          onPressed: () {
+            if (groupName.isEmpty) {
+              Get.snackbar("Error", "Please enter group name");
+            } else {
+              groupController.createGroup(groupName.value, imagePath.value);
+            }
+          },
+          child: groupController.isLoading.value
+              ? const CircularProgressIndicator(
+                  color: Colors.white,
+                )
+              : Icon(
+                  Icons.done,
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
         ),
       ),
       body: Column(
@@ -80,7 +91,9 @@ class GroupTitle extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       TextFormField(
-                        controller: groupName,
+                        onChanged: (value) {
+                          groupName.value = value;
+                        },
                         decoration: InputDecoration(
                           hintText: "Group Name",
                           hintStyle: Theme.of(context).textTheme.labelLarge,
