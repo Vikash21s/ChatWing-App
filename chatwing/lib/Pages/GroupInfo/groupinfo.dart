@@ -25,6 +25,7 @@ class GroupInfo extends StatelessWidget {
         child: ListView(
           children: [
             GroupMemberInfo(
+              groupId: groupModel.id!,
               profileImage: groupModel.profileUrl == ""
                   ? AssetsImage.defaultProfileUrl
                   : groupModel.profileUrl!,
