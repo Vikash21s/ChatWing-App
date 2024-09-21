@@ -7,6 +7,7 @@ import 'package:chatwing/Pages/Welcome/WelcomePage.dart';
 import 'package:chatwing/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() async {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      builder: FToastBuilder(),
       title: 'Flutter Demo',
       theme: lightTheme,
       getPages: pagePath,
