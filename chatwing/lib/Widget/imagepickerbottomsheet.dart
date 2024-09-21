@@ -5,9 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 
-Future<dynamic> ImagePickerBottomSheet(
-    BuildContext context,
-    ChatController chatController,
+Future<dynamic> ImagePickerBottomSheet(BuildContext context, RxString imagePath,
     ImagePickerController imagePickerController) {
   return Get.bottomSheet(Container(
     height: 150,
@@ -24,7 +22,7 @@ Future<dynamic> ImagePickerBottomSheet(
       children: [
         InkWell(
           onTap: () async {
-            chatController.selectedImagePath.value =
+            imagePath.value =
                 await imagePickerController.pickImage(ImageSource.camera);
             Get.back();
           },
@@ -42,7 +40,7 @@ Future<dynamic> ImagePickerBottomSheet(
         ),
         InkWell(
           onTap: () async {
-            chatController.selectedImagePath.value =
+            imagePath.value =
                 await imagePickerController.pickImage(ImageSource.gallery);
             Get.back();
           },

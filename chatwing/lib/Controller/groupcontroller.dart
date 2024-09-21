@@ -105,8 +105,10 @@ class GroupController extends GetxController {
 
   Future<void> sendGroupMessage(
       String message, String groupId, String imagePath) async {
+    isLoading.value = true;
     var chatId = uuid.v6();
-    String imageUrl = await profileController.uploadFileToFirebase(imagePath);
+    String imageUrl =
+        await profileController.uploadFileToFirebase(selectedImagePath.value);
     var newChat = ChatModel(
       id: chatId,
       message: message,
@@ -123,6 +125,8 @@ class GroupController extends GetxController {
         .set(
           newChat.toJson(),
         );
+    selectedImagePath.value = "";
+    isLoading.value = false;
   }
 
   Stream<List<ChatModel>> getGroupMessages(String groupId) {

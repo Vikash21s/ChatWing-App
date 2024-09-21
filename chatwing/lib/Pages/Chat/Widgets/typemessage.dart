@@ -58,7 +58,9 @@ class TypeMessage extends StatelessWidget {
                 ? InkWell(
                     onTap: () {
                       ImagePickerBottomSheet(
-                          context, chatController, imagePickerController);
+                          context,
+                          chatController.selectedImagePath,
+                          imagePickerController);
                     },
                     child: Container(
                       width: 35, // uski configuration 30, 30 hai

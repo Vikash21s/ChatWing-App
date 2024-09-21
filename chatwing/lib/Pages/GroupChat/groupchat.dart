@@ -19,7 +19,6 @@ class GroupChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ChatController chatController = Get.put(ChatController());
     GroupController groupController = Get.put(GroupController());
     ProfileController profileController = Get.put(ProfileController());
 
@@ -143,7 +142,7 @@ class GroupChatPage extends StatelessWidget {
                           }
                         }),
                     Obx(
-                      () => (chatController.selectedImagePath.value != "")
+                      () => (groupController.selectedImagePath.value != "")
                           ? Positioned(
                               bottom: 0,
                               left: 0,
@@ -155,7 +154,7 @@ class GroupChatPage extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: FileImage(
-                                          File(chatController
+                                          File(groupController
                                               .selectedImagePath.value),
                                         ),
                                         fit: BoxFit
@@ -172,8 +171,8 @@ class GroupChatPage extends StatelessWidget {
                                     right: 0,
                                     child: IconButton(
                                       onPressed: () {
-                                        chatController.selectedImagePath.value =
-                                            "";
+                                        groupController
+                                            .selectedImagePath.value = "";
                                       },
                                       icon: Icon(Icons.close),
                                     ),

@@ -17,7 +17,6 @@ class GroupTypeMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ChatController chatController = Get.put(ChatController());
     TextEditingController messageController = TextEditingController();
     RxString message = "".obs;
     ImagePickerController imagePickerController =
@@ -57,11 +56,13 @@ class GroupTypeMessage extends StatelessWidget {
           ),
           SizedBox(width: 10),
           Obx(
-            () => chatController.selectedImagePath.value == ""
+            () => groupController.selectedImagePath.value == ""
                 ? InkWell(
                     onTap: () {
                       ImagePickerBottomSheet(
-                          context, chatController, imagePickerController);
+                          context,
+                          groupController.selectedImagePath,
+                          imagePickerController);
                     },
                     child: Container(
                       width: 35, // uski configuration 30, 30 hai
@@ -78,7 +79,7 @@ class GroupTypeMessage extends StatelessWidget {
 
           Obx(
             () => message.value != "" ||
-                    chatController.selectedImagePath.value != ""
+                    groupController.selectedImagePath.value != ""
                 ? InkWell(
                     splashColor: Colors.transparent, //
                     highlightColor: Colors
@@ -95,7 +96,7 @@ class GroupTypeMessage extends StatelessWidget {
                     child: Container(
                       width: 35,
                       height: 38,
-                      child: chatController.isLoading.value
+                      child: groupController.isLoading.value
                           ? CircularProgressIndicator()
                           : SvgPicture.asset(
                               AssetsImage.chatSendSvg,
