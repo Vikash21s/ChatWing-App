@@ -1,5 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/groupcontroller.dart';
+import 'package:chatwing/Pages/GroupChat/groupchat.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,9 @@ class GroupsPage extends StatelessWidget {
         children: groupController.groupList
             .map(
               (group) => InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.to(GroupChatPage(groupModel: group));
+                },
                 child: ChatTile(
                   name: group.name!,
                   imageUrl: group.profileUrl == ""
