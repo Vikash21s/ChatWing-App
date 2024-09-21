@@ -3,12 +3,15 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/chatcontroller.dart';
+import 'package:chatwing/Controller/groupcontroller.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/groupmodel.dart';
+import 'package:chatwing/Pages/Chat/Widgets/chatbubble.dart';
 import 'package:chatwing/Pages/GroupChat/grouptypemessage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:intl/intl.dart';
 
 class GroupChatPage extends StatelessWidget {
   final GroupModel groupModel;
@@ -17,8 +20,9 @@ class GroupChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ChatController chatController = Get.put(ChatController());
-    TextEditingController messageController = TextEditingController();
+    GroupController groupController = Get.put(GroupController());
     ProfileController profileController = Get.put(ProfileController());
+
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -96,47 +100,48 @@ class GroupChatPage extends StatelessWidget {
               Expanded(
                 child: Stack(
                   children: [
-                    // StreamBuilder<List<ChatModel>>(
-                    //     stream: chatController.getMessages(userModel.id!),
-                    //     builder: (context, snapshot) {
-                    //       if (snapshot.connectionState ==
-                    //           ConnectionState.waiting) {
-                    //         return const Center(
-                    //           child: CircularProgressIndicator(),
-                    //         );
-                    //       }
-                    //       if (snapshot.hasError) {
-                    //         return Center(
-                    //           child: Text("Error: ${snapshot.error}"),
-                    //         );
-                    //       }
-                    //       if (snapshot.data == null) {
-                    //         return const Center(
-                    //           child: Text("No Messages"),
-                    //         );
-                    //       } else {
-                    //         return ListView.builder(
-                    //             reverse: true,
-                    //             itemCount: snapshot.data!.length,
-                    //             itemBuilder: (context, index) {
-                    //               DateTime timestamp = DateTime.parse(
-                    //                   snapshot.data![index].timestamp!);
-                    //               String formattedTime =
-                    //                   DateFormat('hh:mm a').format(timestamp);
+                    StreamBuilder(
+                        stream:
+                            groupController.getGroupMessages(groupModel.id!),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                          if (snapshot.hasError) {
+                            return Center(
+                              child: Text("Error: ${snapshot.error}"),
+                            );
+                          }
+                          if (snapshot.data == null) {
+                            return const Center(
+                              child: Text("No Messages"),
+                            );
+                          } else {
+                            return ListView.builder(
+                                reverse: true,
+                                itemCount: snapshot.data!.length,
+                                itemBuilder: (context, index) {
+                                  DateTime timestamp = DateTime.parse(
+                                      snapshot.data![index].timestamp!);
+                                  String formattedTime =
+                                      DateFormat('hh:mm a').format(timestamp);
 
-                    //               return ChatBubble(
-                    //                 message: snapshot.data![index].message!,
-                    //                 imageUrl:
-                    //                     snapshot.data![index].imageUrl ?? "",
-                    //                 isComming: snapshot
-                    //                         .data![index].receiverId ==
-                    //                     profileController.currentUser.value.id,
-                    //                 status: "read",
-                    //                 time: formattedTime,
-                    //               );
-                    //             });
-                    //       }
-                    //     }),
+                                  return ChatBubble(
+                                    message: snapshot.data![index].message!,
+                                    imageUrl:
+                                        snapshot.data![index].imageUrl ?? "",
+                                    isComming: snapshot
+                                            .data![index].receiverId ==
+                                        profileController.currentUser.value.id,
+                                    status: "read",
+                                    time: formattedTime,
+                                  );
+                                });
+                          }
+                        }),
                     Obx(
                       () => (chatController.selectedImagePath.value != "")
                           ? Positioned(

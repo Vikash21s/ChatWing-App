@@ -1,4 +1,5 @@
 import 'package:chatwing/Controller/profilecontroller.dart';
+import 'package:chatwing/Model/chatmodel.dart';
 import 'package:chatwing/Model/groupmodel.dart';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Pages/HomePage/homepage.dart';
@@ -15,6 +16,7 @@ class GroupController extends GetxController {
   var uuid = Uuid();
   RxBool isLoading = false.obs;
   RxList<GroupModel> groupList = <GroupModel>[].obs;
+  RxString selectedImagePath = "".obs;
   ProfileController profileController = Get.put(ProfileController());
 
   @override
@@ -90,5 +92,43 @@ class GroupController extends GetxController {
         )
         .toList();
     isLoading.value = false;
+  }
+
+  Future<void> sendGroupMessage(
+      String message, String groupId, String imagePath) async {
+    var chatId = uuid.v6();
+    String imageUrl = await profileController.uploadFileToFirebase(imagePath);
+    var newChat = ChatModel(
+      id: chatId,
+      message: message,
+      imageUrl: imageUrl,
+      senderId: auth.currentUser!.uid,
+      senderName: profileController.currentUser.value.name,
+      timestamp: DateTime.now().toString(),
+    );
+    await db
+        .collection("groups")
+        .doc(groupId)
+        .collection("messages")
+        .doc(chatId)
+        .set(
+          newChat.toJson(),
+        );
+  }
+
+  Stream<List<ChatModel>> getGroupMessages(String groupId) {
+    return db
+        .collection("groups")
+        .doc(groupId)
+        .collection("messages")
+        .orderBy("timestamp", descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map(
+                (doc) => ChatModel.fromJson(doc.data()),
+              )
+              .toList(),
+        );
   }
 }

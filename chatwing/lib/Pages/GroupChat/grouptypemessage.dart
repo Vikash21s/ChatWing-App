@@ -1,5 +1,6 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/chatcontroller.dart';
+import 'package:chatwing/Controller/groupcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Model/groupmodel.dart';
 import 'package:chatwing/Model/usermodel.dart';
@@ -21,6 +22,7 @@ class GroupTypeMessage extends StatelessWidget {
     RxString message = "".obs;
     ImagePickerController imagePickerController =
         Get.put(ImagePickerController());
+    GroupController groupController = Get.put(GroupController());
 
     return Container(
       margin: EdgeInsets.all(5), // yha se mujhe text box ka margin set krna hai
@@ -82,13 +84,13 @@ class GroupTypeMessage extends StatelessWidget {
                     highlightColor: Colors
                         .transparent, // this is use to remove touch effect
                     onTap: () {
-                      // if (messageController.text.isNotEmpty ||
-                      //     chatController.selectedImagePath.value.isNotEmpty) {
-                      //   chatController.sendMessage(
-                      //       groupModel.id!, messageController.text, groupModel);
-                      //   messageController.clear();
-                      //   message.value = "";
-                      // }
+                      groupController.sendGroupMessage(
+                        messageController.text,
+                        groupModel.id!,
+                        "",
+                      );
+                      messageController.clear();
+                      message.value = "";
                     },
                     child: Container(
                       width: 35,
