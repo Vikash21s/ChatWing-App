@@ -10,9 +10,10 @@ import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
 class GroupController extends GetxController {
-  RxList<UserModel> groupMembers = <UserModel>[].obs;
   final db = FirebaseFirestore.instance;
   final auth = FirebaseAuth.instance;
+  RxList<UserModel> groupMembers = <UserModel>[].obs;
+
   var uuid = Uuid();
   RxBool isLoading = false.obs;
   RxList<GroupModel> groupList = <GroupModel>[].obs;
@@ -36,7 +37,15 @@ class GroupController extends GetxController {
   Future<void> createGroup(String groupName, String imagePath) async {
     isLoading.value = true;
     String groupId = uuid.v6();
-
+    groupMembers.add(
+      UserModel(
+        id: auth.currentUser!.uid,
+        name: profileController.currentUser.value.name,
+        profileImage: profileController.currentUser.value.profileImage,
+        email: profileController.currentUser.value.email,
+        role: "Admin",
+      ),
+    );
     try {
       String imageUrl = await profileController.uploadFileToFirebase(imagePath);
 

@@ -133,9 +133,9 @@ class GroupChatPage extends StatelessWidget {
                                     message: snapshot.data![index].message!,
                                     imageUrl:
                                         snapshot.data![index].imageUrl ?? "",
-                                    isComming: snapshot
-                                            .data![index].receiverId ==
-                                        profileController.currentUser.value.id,
+                                    isComming: snapshot.data![index].senderId !=
+                                        profileController.currentUser.value
+                                            .id, //change the text positon check left or right
                                     status: "read",
                                     time: formattedTime,
                                   );
