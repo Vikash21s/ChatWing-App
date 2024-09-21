@@ -4,6 +4,7 @@ import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Pages/HomePage/homepage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
@@ -49,7 +50,18 @@ class GroupController extends GetxController {
         },
       );
       // Group Created tost
-      Get.snackbar("Group Created", "Group Created Successfully");
+      Get.snackbar(
+        "Group Created",
+        "Group Created Successfully",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: const Color.fromARGB(255, 153, 76, 175),
+        colorText: Colors.white,
+        borderRadius: 10,
+        margin: EdgeInsets.all(10),
+        duration: Duration(seconds: 3),
+        icon: Icon(Icons.check_circle, color: Colors.white),
+      );
+
       Get.offAll(Homepage());
       isLoading.value = false;
     } catch (e) {
