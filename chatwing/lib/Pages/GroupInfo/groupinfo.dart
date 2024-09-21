@@ -1,7 +1,7 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Model/groupmodel.dart';
+import 'package:chatwing/Pages/GroupInfo/groupmemberinfo.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
-import 'package:chatwing/Pages/UserProfile/Widgets/userinfo.dart';
 import 'package:flutter/material.dart';
 
 class GroupInfo extends StatelessWidget {
@@ -24,7 +24,7 @@ class GroupInfo extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: ListView(
           children: [
-            LoginUserInfo(
+            GroupMemberInfo(
               profileImage: groupModel.profileUrl == ""
                   ? AssetsImage.defaultProfileUrl
                   : groupModel.profileUrl!,
