@@ -13,7 +13,14 @@ class GroupController extends GetxController {
   final auth = FirebaseAuth.instance;
   var uuid = Uuid();
   RxBool isLoading = false.obs;
+  RxList<GroupModel> groupList = <GroupModel>[].obs;
   ProfileController profileController = Get.put(ProfileController());
+
+  @override
+  void onInit() {
+    super.onInit();
+    getGroups();
+  }
 
   void selectMember(UserModel user) {
     if (groupMembers.contains(user)) {
@@ -48,5 +55,28 @@ class GroupController extends GetxController {
     } catch (e) {
       print(e);
     }
+  }
+
+  Future<void> getGroups() async {
+    isLoading.value = true;
+    List<GroupModel> tempGroup = [];
+    await db.collection('groups').get().then(
+      (value) {
+        tempGroup = value.docs
+            .map(
+              (e) => GroupModel.fromJson(e.data()),
+            )
+            .toList();
+      },
+    );
+    groupList.clear();
+    groupList.value = tempGroup
+        .where(
+          (e) => e.members!.any(
+            (element) => element.id == auth.currentUser!.uid,
+          ),
+        )
+        .toList();
+    isLoading.value = false;
   }
 }
