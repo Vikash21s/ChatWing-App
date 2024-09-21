@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/groupcontroller.dart';
+import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:uuid/uuid.dart';
 
 class GroupTitle extends StatelessWidget {
   const GroupTitle({super.key});
@@ -11,13 +16,21 @@ class GroupTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GroupController groupController = Get.put(GroupController());
+    ImagePickerController imagePickerController =
+        Get.put(ImagePickerController());
+    RxString imagePath = "".obs;
+    //RxString groupName = "".obs;
+    TextEditingController groupName = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         title: Text("New Group"),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        onPressed: () {},
+        onPressed: () {
+          groupController.createGroup(groupName.text, imagePath.value);
+        },
         child: Icon(
           Icons.done,
           color: Theme.of(context).colorScheme.onBackground,
@@ -37,16 +50,37 @@ class GroupTitle extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      Container(
-                        height: 150,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary,
-                          borderRadius: BorderRadius.circular(100),
+                      Obx(
+                        () => InkWell(
+                          onTap: () async {
+                            imagePath.value = await imagePickerController
+                                .pickImage(ImageSource.gallery);
+                          },
+                          child: Container(
+                            height: 150,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.primary,
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            child: imagePath.value == ""
+                                ? const Icon(
+                                    Icons.group,
+                                    size: 40,
+                                  )
+                                : ClipRRect(
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: Image.file(
+                                      File(imagePath.value),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
                       TextFormField(
+                        controller: groupName,
                         decoration: InputDecoration(
                           hintText: "Group Name",
                           hintStyle: Theme.of(context).textTheme.labelLarge,
