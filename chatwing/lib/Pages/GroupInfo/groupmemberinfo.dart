@@ -136,11 +136,12 @@ class GroupMemberInfo extends StatelessWidget {
                             width: 25,
                           ),
                           SizedBox(width: 8),
+                          SizedBox(width: 5),
                           Text(
                             "Add",
-                            style: TextStyle(
-                              color: Color.fromRGBO(34, 88, 238, 0.98),
-                            ),
+                            // style: TextStyle(
+                            //   color: Colors.white,
+                            // ),
                           )
                         ],
                       ),
