@@ -57,7 +57,9 @@ class GroupChatPage extends StatelessWidget {
           highlightColor:
               Colors.transparent, // this is use to remove touch effect
           onTap: () {
-            Get.to(GroupInfo());
+            Get.to(GroupInfo(
+              groupModel: groupModel,
+            ));
           },
           child: Row(
             children: [
