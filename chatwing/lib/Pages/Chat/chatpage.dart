@@ -82,7 +82,7 @@ class ChatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 12,
                             color: snapshot.data!.status == "Online"
-                                ? Colors.green
+                                ? Colors.green[500]
                                 : Colors.grey,
                           ),
                         );
