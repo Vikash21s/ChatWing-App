@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatwing/Config/images.dart';
+import 'package:chatwing/Controller/callcontroller.dart';
 import 'package:chatwing/Controller/chatcontroller.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/chatmodel.dart';
@@ -25,6 +26,7 @@ class ChatPage extends StatelessWidget {
     ChatController chatController = Get.put(ChatController());
     TextEditingController messageController = TextEditingController();
     ProfileController profileController = Get.put(ProfileController());
+    CallController callController = Get.put(CallController());
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -101,7 +103,10 @@ class ChatPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              callController.callAction(
+                  userModel, profileController.currentUser.value);
+            },
             icon: Icon(
               Icons.phone,
             ),
