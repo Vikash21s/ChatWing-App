@@ -3,6 +3,7 @@ import 'package:chatwing/Config/strings.dart';
 import 'package:chatwing/Controller/contactcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
+import 'package:chatwing/Controller/statuscontroller.dart';
 import 'package:chatwing/Pages/Groups/groupspage.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/tabbar.dart';
@@ -28,6 +29,7 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
 
     ImagePickerController imagePickerController =
         Get.put(ImagePickerController());
+    StatusController statusController = Get.put(StatusController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
