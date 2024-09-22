@@ -44,13 +44,13 @@ class CallController extends GetxController {
           .doc(id) //
           .set(newCall.toJson());
       await db
-          .collection("user")
+          .collection("users")
           .doc(auth.currentUser!.uid)
           .collection("calls")
           .doc(id)
           .set(newCall.toJson());
       await db
-          .collection("user")
+          .collection("users")
           .doc(receiver.id)
           .collection("calls")
           .doc(id)
