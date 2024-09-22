@@ -43,6 +43,21 @@ class CallController extends GetxController {
           .collection("call")
           .doc(id) //
           .set(newCall.toJson());
+      await db
+          .collection("user")
+          .doc(auth.currentUser!.uid)
+          .collection("calls")
+          .doc(id)
+          .set(newCall.toJson());
+      await db
+          .collection("user")
+          .doc(receiver.id)
+          .collection("calls")
+          .doc(id)
+          .set(newCall.toJson());
+      Future.delayed(Duration(seconds: 20), () {
+        endCall(newCall);
+      });
     } catch (e) {
       print(e);
       print(
@@ -56,5 +71,18 @@ class CallController extends GetxController {
         .doc(auth.currentUser!.uid)
         .collection("call")
         .snapshots();
+  }
+
+  Future<void> endCall(AudioCallModel call) async {
+    try {
+      await db
+          .collection("notification")
+          .doc(call.receiverUid)
+          .collection("call")
+          .doc(call.id)
+          .delete();
+    } catch (e) {
+      print(e);
+    }
   }
 }
