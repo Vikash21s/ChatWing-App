@@ -28,9 +28,9 @@ class CallController extends GetxController {
     try {
       await db
           .collection("notification")
-          .doc(auth.currentUser!.uid)
+          .doc(auth.currentUser!.uid) // yha uske me doc(receiver.id)   hai..
           .collection("call")
-          .doc(id)
+          .doc(id) //
           .set(newCall.toJson());
     } catch (e) {
       print(e);
