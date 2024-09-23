@@ -1,5 +1,6 @@
 import 'package:chatwing/Controller/contactcontroller.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
+import 'package:chatwing/Model/audiocall.dart';
 import 'package:chatwing/Model/chatmodel.dart';
 import 'package:chatwing/Model/chatroommodel.dart';
 import 'package:chatwing/Model/usermodel.dart';
@@ -127,5 +128,21 @@ class ChatController extends GetxController {
     return db.collection('users').doc(uid).snapshots().map((event) {
       return UserModel.fromJson(event.data()!);
     });
+  }
+
+  Stream<List<CallModel>> getCalls() {
+    return db
+        .collection("users")
+        .doc(auth.currentUser!.uid)
+        .collection("calls")
+        .orderBy("timestamp", descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map(
+                (doc) => CallModel.fromJson(doc.data()),
+              )
+              .toList(),
+        );
   }
 }

@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 class CallController extends GetxController {
@@ -65,6 +66,8 @@ class CallController extends GetxController {
   Future<void> callAction(
       UserModel receiver, UserModel caller, String type) async {
     String id = uuid;
+    DateTime timestamp = DateTime.now();
+    String nowTime = DateFormat('hh:mm a').format(timestamp);
     var newCall = CallModel(
       id: id,
       callerName: caller.name,
@@ -77,6 +80,8 @@ class CallController extends GetxController {
       receiverEmail: receiver.email,
       status: "dialing",
       type: type,
+      time: nowTime,
+      timestamp: DateTime.now.toString(),
     );
 
     try {
