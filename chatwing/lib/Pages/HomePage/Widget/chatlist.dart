@@ -1,6 +1,7 @@
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/contactcontroller.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
+import 'package:chatwing/Model/chatroommodel.dart';
 import 'package:chatwing/Pages/Chat/chatpage.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
 import 'package:flutter/material.dart';
@@ -14,15 +15,22 @@ class ChatList extends StatelessWidget {
   Widget build(BuildContext context) {
     ContactController contactController = Get.put(ContactController());
     ProfileController profileController = Get.put(ProfileController());
-    return RefreshIndicator(
-      child: Obx(
-        () => ListView(
-          children: contactController.chatRoomList
+
+    return StreamBuilder<List<ChatRoomModel>>(
+      stream: contactController.getChatRoomStream(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return Center(child: CircularProgressIndicator());
+        }
+
+        var chatRoomList = snapshot.data!;
+
+        return ListView(
+          children: chatRoomList
               .map(
                 (e) => InkWell(
-                  splashColor: Colors.transparent, //
-                  highlightColor:
-                      Colors.transparent, // this is use to remove touch effect
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () {
                     Get.to(
                       ChatPage(
@@ -49,10 +57,7 @@ class ChatList extends StatelessWidget {
                 ),
               )
               .toList(),
-        ),
-      ),
-      onRefresh: () {
-        return contactController.getChatRoomList();
+        );
       },
     );
   }

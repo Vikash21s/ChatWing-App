@@ -13,10 +13,11 @@ class ContactController extends GetxController {
   RxList<UserModel> userList = <UserModel>[].obs;
   RxList<ChatRoomModel> chatRoomList = <ChatRoomModel>[].obs;
 
-  void onInit() async {
+  @override
+  void onInit() {
     super.onInit();
-    await getUserList();
-    await getChatRoomList();
+    getUserList();
+    chatRoomList.bindStream(getChatRoomStream());
   }
 
   Future<void> getUserList() async {
@@ -40,30 +41,21 @@ class ContactController extends GetxController {
     isLoading.value = false;
   }
 
-  Future<void> getChatRoomList() async {
-    List<ChatRoomModel> tempChatRoom = [];
-    await db
+  Stream<List<ChatRoomModel>> getChatRoomStream() {
+    return db
         .collection('chats')
         .orderBy("timestamp", descending: true)
-        .get()
-        .then(
-      (value) {
-        tempChatRoom = value.docs
-            .map(
-              (e) => ChatRoomModel.fromJson(e.data()),
-            )
-            .toList();
-      },
-    );
-    chatRoomList.value = tempChatRoom
-        .where(
-          (e) => e.id!.contains(
-            auth.currentUser!.uid,
-          ),
-        )
-        .toList();
-
-    print(chatRoomList);
+        .snapshots()
+        .map((QuerySnapshot query) {
+      List<ChatRoomModel> retVal = [];
+      query.docs.forEach((element) {
+        retVal.add(
+            ChatRoomModel.fromJson(element.data() as Map<String, dynamic>));
+      });
+      return retVal
+          .where((e) => e.id!.contains(auth.currentUser!.uid))
+          .toList();
+    });
   }
 
   Future<void> saveContact(UserModel user) async {
@@ -95,4 +87,6 @@ class ContactController extends GetxController {
               .toList(),
         );
   }
+
+  void getChatRoomList() {}
 }
