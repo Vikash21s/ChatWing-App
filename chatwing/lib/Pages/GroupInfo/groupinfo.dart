@@ -16,7 +16,7 @@ class GroupInfo extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
           ),
         ],
       ),
@@ -32,12 +32,12 @@ class GroupInfo extends StatelessWidget {
               userName: groupModel.name!,
               userEmail: groupModel.description ?? "No Description Available",
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               "Members",
               style: Theme.of(context).textTheme.labelMedium,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Column(
               children: groupModel.members!
                   .map(

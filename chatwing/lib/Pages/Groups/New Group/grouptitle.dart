@@ -6,9 +6,7 @@ import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:uuid/uuid.dart';
 
 class GroupTitle extends StatelessWidget {
   const GroupTitle({super.key});
@@ -23,7 +21,7 @@ class GroupTitle extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("New Group"),
+        title: const Text("New Group"),
       ),
       floatingActionButton: Obx(
         () => FloatingActionButton(
@@ -43,15 +41,15 @@ class GroupTitle extends StatelessWidget {
                 )
               : Icon(
                   Icons.done,
-                  color: Theme.of(context).colorScheme.onBackground,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
         ),
       ),
       body: Column(
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primaryContainer,
               borderRadius: BorderRadius.circular(10),
@@ -89,7 +87,7 @@ class GroupTitle extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextFormField(
                         onChanged: (value) {
                           groupName.value = value;
@@ -97,17 +95,17 @@ class GroupTitle extends StatelessWidget {
                         decoration: InputDecoration(
                           hintText: "Group Name",
                           hintStyle: Theme.of(context).textTheme.labelLarge,
-                          prefixIcon: Icon(Icons.group),
+                          prefixIcon: const Icon(Icons.group),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 )
               ],
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Expanded(
             child: SingleChildScrollView(
               child: Column(

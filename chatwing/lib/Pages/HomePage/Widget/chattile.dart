@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:chatwing/Config/images.dart';
 import 'package:flutter/material.dart';
 
 class ChatTile extends StatelessWidget {
@@ -17,8 +16,8 @@ class ChatTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
-      padding: EdgeInsets.all(10),
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Theme.of(context).colorScheme.primaryContainer,
@@ -29,7 +28,7 @@ class ChatTile extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                Container(
+                SizedBox(
                   height: 70,
                   width: 70,
                   child: ClipRRect(
@@ -39,11 +38,11 @@ class ChatTile extends StatelessWidget {
                         fit: BoxFit.cover,
                         width: 70,
                         placeholder: (context, url) =>
-                            CircularProgressIndicator(),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
+                            const CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
                       )),
                 ),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +51,7 @@ class ChatTile extends StatelessWidget {
                         name,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
-                      SizedBox(height: 2), // we can change both text distance
+                      const SizedBox(height: 2), // we can change both text distance
                       Text(
                         lastChat,
                         maxLines: 1,

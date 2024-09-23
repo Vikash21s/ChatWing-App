@@ -4,7 +4,6 @@ import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LoginUserInfo extends StatelessWidget {
   final String profileImage;
@@ -20,7 +19,7 @@ class LoginUserInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     ProfileController profileController = Get.put(ProfileController());
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       //height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -34,7 +33,7 @@ class LoginUserInfo extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 150,
                       height: 150,
                       child: ClipRRect(
@@ -43,15 +42,15 @@ class LoginUserInfo extends StatelessWidget {
                           imageUrl: profileImage,
                           fit: BoxFit.cover,
                           placeholder: (context, url) =>
-                              CircularProgressIndicator(),
+                              const CircularProgressIndicator(),
                           errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
+                              const Icon(Icons.error),
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -61,7 +60,7 @@ class LoginUserInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 0),
+                const SizedBox(height: 0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -71,16 +70,16 @@ class LoginUserInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Container(
                       height: 50,
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                       child: Row(
                         children: [
@@ -88,8 +87,8 @@ class LoginUserInfo extends StatelessWidget {
                             AssetsImage.profileAudioCall,
                             width: 25,
                           ),
-                          SizedBox(width: 8),
-                          Text(
+                          const SizedBox(width: 8),
+                          const Text(
                             "Call",
                             style: TextStyle(
                               color: Color(0xff039C00),
@@ -100,20 +99,20 @@ class LoginUserInfo extends StatelessWidget {
                     ),
                     Container(
                       height: 50,
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                       child: Row(
                         children: [
                           SvgPicture.asset(
                             AssetsImage.profileVideoCall,
                             width: 25,
-                            color: Color.fromRGBO(236, 135, 233, 0.98),
+                            color: const Color.fromRGBO(236, 135, 233, 0.98),
                           ),
-                          SizedBox(width: 8),
-                          Text(
+                          const SizedBox(width: 8),
+                          const Text(
                             "Video",
                             style: TextStyle(
                               color: Color.fromRGBO(236, 135, 233, 0.98),
@@ -124,10 +123,10 @@ class LoginUserInfo extends StatelessWidget {
                     ),
                     Container(
                       height: 50,
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                       child: Row(
                         children: [
@@ -135,8 +134,8 @@ class LoginUserInfo extends StatelessWidget {
                             AssetsImage.appIconSVG,
                             width: 25,
                           ),
-                          SizedBox(width: 8),
-                          Text(
+                          const SizedBox(width: 8),
+                          const Text(
                             "Chat",
                             style: TextStyle(
                               color: Color.fromRGBO(34, 88, 238, 0.98),

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/contactcontroller.dart';
 import 'package:chatwing/Controller/groupcontroller.dart';
@@ -17,7 +16,7 @@ class NewGroup extends StatelessWidget {
     GroupController groupController = Get.put(GroupController());
     return Scaffold(
       appBar: AppBar(
-        title: Text('New Group'),
+        title: const Text('New Group'),
       ),
       floatingActionButton: Obx(
         () => FloatingActionButton(
@@ -28,12 +27,12 @@ class NewGroup extends StatelessWidget {
             if (groupController.groupMembers.isEmpty) {
               Get.snackbar("Error", "Please select atleast one member");
             } else {
-              Get.to(GroupTitle());
+              Get.to(const GroupTitle());
             }
           },
           child: Icon(
             Icons.arrow_forward,
-            color: Theme.of(context).colorScheme.onBackground,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ),
@@ -41,8 +40,8 @@ class NewGroup extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            SelectedMembers(),
-            SizedBox(height: 10),
+            const SelectedMembers(),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Text(
@@ -51,7 +50,7 @@ class NewGroup extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: StreamBuilder(
                 stream: contactController.getContacts(),

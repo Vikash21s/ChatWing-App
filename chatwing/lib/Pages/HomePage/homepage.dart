@@ -10,9 +10,7 @@ import 'package:chatwing/Pages/HomePage/Widget/chatlist.dart';
 import 'package:chatwing/Pages/HomePage/Widget/tabbar.dart';
 import 'package:chatwing/Pages/ProfilePage/profilepage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -52,16 +50,16 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
             onPressed: () {
               contactController.getChatRoomList();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
             ),
           ),
           IconButton(
             onPressed: () {
               // Get.toNamed("/profilePage");
-              Get.to(ProfilePage());
+              Get.to(const ProfilePage());
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.more_vert,
             ),
           ),
@@ -75,12 +73,12 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
         backgroundColor: Theme.of(context).colorScheme.primary,
         child: Icon(
           Icons.add,
-          color: Theme.of(context).colorScheme.onBackground,
+          color: Theme.of(context).colorScheme.onSurface,
         ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: TabBarView(controller: tabController, children: [
+        child: TabBarView(controller: tabController, children: const [
           ChatList(),
           GroupsPage(),
           CallHistory(),

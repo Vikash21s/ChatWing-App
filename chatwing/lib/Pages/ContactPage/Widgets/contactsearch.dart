@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ContactSearch extends StatelessWidget {
@@ -7,7 +6,7 @@ class ContactSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Theme.of(context).colorScheme.primaryContainer,
@@ -20,7 +19,7 @@ class ContactSearch extends StatelessWidget {
               onSubmitted: (value) => {
                 print(value),
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Search Contact",
                 prefixIcon: Icon(Icons.search),
               ),

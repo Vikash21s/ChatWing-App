@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class SplaceController extends GetxController {
   final auth = FirebaseAuth.instance;
 
+  @override
   void onInit() async {
     super.onInit();
     splaceHandle();
@@ -11,7 +12,7 @@ class SplaceController extends GetxController {
 
   void splaceHandle() async {
     await Future.delayed(
-      Duration(seconds: 3),
+      const Duration(seconds: 3),
     );
     if (auth.currentUser == null) {
       Get.offAllNamed("/authPage");

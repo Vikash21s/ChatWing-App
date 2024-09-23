@@ -7,7 +7,6 @@ import 'package:chatwing/Model/usermodel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
@@ -15,7 +14,7 @@ class ChatController extends GetxController {
   final auth = FirebaseAuth.instance; // miner changes
   final db = FirebaseFirestore.instance;
   RxBool isLoading = false.obs;
-  var uuid = Uuid();
+  var uuid = const Uuid();
   RxString selectedImagePath = "".obs;
   ProfileController profileController = Get.put(ProfileController());
   ContactController contactController = Get.put(ContactController());

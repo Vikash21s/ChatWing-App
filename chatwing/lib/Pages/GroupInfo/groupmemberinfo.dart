@@ -6,7 +6,6 @@ import 'package:chatwing/Model/usermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class GroupMemberInfo extends StatelessWidget {
   final String profileImage;
@@ -26,7 +25,7 @@ class GroupMemberInfo extends StatelessWidget {
     ProfileController profileController = Get.put(ProfileController());
     GroupController groupController = Get.put(GroupController());
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       //height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -40,7 +39,7 @@ class GroupMemberInfo extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 150,
                       height: 150,
                       child: ClipRRect(
@@ -49,15 +48,15 @@ class GroupMemberInfo extends StatelessWidget {
                           imageUrl: profileImage,
                           fit: BoxFit.cover,
                           placeholder: (context, url) =>
-                              CircularProgressIndicator(),
+                              const CircularProgressIndicator(),
                           errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
+                              const Icon(Icons.error),
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -67,7 +66,7 @@ class GroupMemberInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 0),
+                const SizedBox(height: 0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -77,16 +76,16 @@ class GroupMemberInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Container(
                       height: 50,
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                       child: Row(
                         children: [
@@ -94,8 +93,8 @@ class GroupMemberInfo extends StatelessWidget {
                             AssetsImage.profileAudioCall,
                             width: 25,
                           ),
-                          SizedBox(width: 8),
-                          Text(
+                          const SizedBox(width: 8),
+                          const Text(
                             "Call",
                             style: TextStyle(
                               color: Color(0xff039C00),
@@ -106,20 +105,20 @@ class GroupMemberInfo extends StatelessWidget {
                     ),
                     Container(
                       height: 50,
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.surface,
                       ),
                       child: Row(
                         children: [
                           SvgPicture.asset(
                             AssetsImage.profileVideoCall,
                             width: 25,
-                            color: Color.fromRGBO(236, 135, 233, 0.98),
+                            color: const Color.fromRGBO(236, 135, 233, 0.98),
                           ),
-                          SizedBox(width: 8),
-                          Text(
+                          const SizedBox(width: 8),
+                          const Text(
                             "Video",
                             style: TextStyle(
                               color: Color.fromRGBO(236, 135, 233, 0.98),
@@ -140,10 +139,10 @@ class GroupMemberInfo extends StatelessWidget {
                       },
                       child: Container(
                         height: 50,
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: Theme.of(context).colorScheme.background,
+                          color: Theme.of(context).colorScheme.surface,
                         ),
                         child: Row(
                           children: [
@@ -151,9 +150,9 @@ class GroupMemberInfo extends StatelessWidget {
                               AssetsImage.groupAddUser,
                               width: 25,
                             ),
-                            SizedBox(width: 8),
-                            SizedBox(width: 5),
-                            Text(
+                            const SizedBox(width: 8),
+                            const SizedBox(width: 5),
+                            const Text(
                               "Add",
                               // style: TextStyle(
                               //   color: Colors.white,

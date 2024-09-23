@@ -5,7 +5,6 @@ import 'package:chatwing/Controller/authcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Widget/primarybutton.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -31,13 +30,13 @@ class ProfilePage extends StatelessWidget {
     Authcontroller authController = Get.put(Authcontroller());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: const Text("Profile"),
         actions: [
           IconButton(
             onPressed: () {
               authController.logoutUser();
             },
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
           ),
         ],
       ),
@@ -46,7 +45,7 @@ class ProfilePage extends StatelessWidget {
         child: ListView(
           children: [
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               // height: 300,
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.primaryContainer,
@@ -57,7 +56,7 @@ class ProfilePage extends StatelessWidget {
                   Expanded(
                     child: Column(
                       children: [
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -71,7 +70,7 @@ class ProfilePage extends StatelessWidget {
                                         imagePath.value =
                                             await imagePickerController
                                                 .pickImage(ImageSource.gallery);
-                                        print("Image Picked" + imagePath.value);
+                                        print("Image Picked${imagePath.value}");
                                       },
                                       child: Container(
                                         height: 200,
@@ -79,12 +78,12 @@ class ProfilePage extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           color: Theme.of(context)
                                               .colorScheme
-                                              .background,
+                                              .surface,
                                           borderRadius:
                                               BorderRadius.circular(100),
                                         ),
                                         child: imagePath.value == ""
-                                            ? Icon(
+                                            ? const Icon(
                                                 Icons.add,
                                               )
                                             : ClipRRect(
@@ -103,7 +102,7 @@ class ProfilePage extends StatelessWidget {
                                       decoration: BoxDecoration(
                                         color: Theme.of(context)
                                             .colorScheme
-                                            .background,
+                                            .surface,
                                         borderRadius:
                                             BorderRadius.circular(100),
                                       ),
@@ -113,7 +112,7 @@ class ProfilePage extends StatelessWidget {
                                               profileController.currentUser
                                                       .value.profileImage ==
                                                   null
-                                          ? Icon(
+                                          ? const Icon(
                                               Icons.image,
                                             )
                                           : ClipRRect(
@@ -126,16 +125,16 @@ class ProfilePage extends StatelessWidget {
                                                     .profileImage!,
                                                 fit: BoxFit.cover,
                                                 placeholder: (context, url) =>
-                                                    CircularProgressIndicator(),
+                                                    const CircularProgressIndicator(),
                                                 errorWidget:
                                                     (context, url, error) =>
-                                                        Icon(Icons.error),
+                                                        const Icon(Icons.error),
                                               )),
                                     ),
                             )
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Obx(
                           () => TextField(
                             controller: name,
@@ -143,13 +142,13 @@ class ProfilePage extends StatelessWidget {
                             decoration: InputDecoration(
                               filled: isEdit.value,
                               labelText: "Name",
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.person,
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Obx(
                           () => TextField(
                             controller: about,
@@ -157,7 +156,7 @@ class ProfilePage extends StatelessWidget {
                             decoration: InputDecoration(
                               filled: isEdit.value,
                               labelText: "About",
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.info,
                               ),
                             ),
@@ -169,7 +168,7 @@ class ProfilePage extends StatelessWidget {
                           decoration: InputDecoration(
                             filled: isEdit.value,
                             labelText: "Email",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.alternate_email,
                             ),
                           ),
@@ -181,13 +180,13 @@ class ProfilePage extends StatelessWidget {
                             decoration: InputDecoration(
                               filled: isEdit.value,
                               labelText: "Number",
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.phone,
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -216,7 +215,7 @@ class ProfilePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                       ],
                     ),
                   )

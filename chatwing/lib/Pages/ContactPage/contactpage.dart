@@ -7,10 +7,8 @@ import 'package:chatwing/Pages/ContactPage/Widgets/contactsearch.dart';
 import 'package:chatwing/Pages/ContactPage/Widgets/newcontacttile.dart';
 import 'package:chatwing/Pages/Groups/New%20Group/newgroup.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -23,7 +21,7 @@ class ContactPage extends StatelessWidget {
     ProfileController profileController = Get.put(ProfileController());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Select contact"),
+        title: const Text("Select contact"),
         actions: [
           Obx(
             () => IconButton(
@@ -31,7 +29,7 @@ class ContactPage extends StatelessWidget {
                 isSearchEnable.value = !isSearchEnable.value;
               },
               icon:
-                  isSearchEnable.value ? Icon(Icons.close) : Icon(Icons.search),
+                  isSearchEnable.value ? const Icon(Icons.close) : const Icon(Icons.search),
             ),
           ),
         ],
@@ -41,29 +39,29 @@ class ContactPage extends StatelessWidget {
         child: ListView(
           children: [
             Obx(
-              () => isSearchEnable.value ? ContactSearch() : SizedBox(),
+              () => isSearchEnable.value ? const ContactSearch() : const SizedBox(),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             NewContactTile(
               btnName: "New Contact",
               icon: Icons.person_add,
               ontap: () {},
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             NewContactTile(
               btnName: "New Group",
               icon: Icons.group_add,
               ontap: () {
-                Get.to(NewGroup());
+                Get.to(const NewGroup());
               },
             ),
-            SizedBox(height: 10),
-            Row(
+            const SizedBox(height: 10),
+            const Row(
               children: [
                 Text("Contacts on ChatWing"),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Obx(
               () => Column(
                 children: contactController.userList

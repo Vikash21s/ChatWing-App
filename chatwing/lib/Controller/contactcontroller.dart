@@ -2,7 +2,6 @@ import 'package:chatwing/Model/chatroommodel.dart';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
@@ -48,10 +47,10 @@ class ContactController extends GetxController {
         .snapshots()
         .map((QuerySnapshot query) {
       List<ChatRoomModel> retVal = [];
-      query.docs.forEach((element) {
+      for (var element in query.docs) {
         retVal.add(
             ChatRoomModel.fromJson(element.data() as Map<String, dynamic>));
-      });
+      }
       return retVal
           .where((e) => e.id!.contains(auth.currentUser!.uid))
           .toList();
@@ -68,7 +67,7 @@ class ContactController extends GetxController {
           .set(user.toJson());
     } catch (ex) {
       if (kDebugMode) {
-        print("Error While Saving Contact 😁😁😁😁😁😁😁😁😁" + ex.toString());
+        print("Error While Saving Contact 😁😁😁😁😁😁😁😁😁$ex");
       }
     }
   }

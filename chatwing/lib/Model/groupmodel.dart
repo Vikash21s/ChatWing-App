@@ -83,22 +83,22 @@ class GroupModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["name"] = name;
-    _data["description"] = description;
-    _data["profileUrl"] = profileUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    data["description"] = description;
+    data["profileUrl"] = profileUrl;
     if (members != null) {
-      _data["members"] = members;
+      data["members"] = members;
     }
-    _data["createdAt"] = createdAt;
-    _data["createdBy"] = createdBy;
-    _data["status"] = status;
-    _data["lastMessage"] = lastMessage;
-    _data["lastMessageTime"] = lastMessageTime;
-    _data["lastMessageBy"] = lastMessageBy;
-    _data["unReadCount"] = unReadCount;
-    _data["timeStamp"] = timeStamp;
-    return _data;
+    data["createdAt"] = createdAt;
+    data["createdBy"] = createdBy;
+    data["status"] = status;
+    data["lastMessage"] = lastMessage;
+    data["lastMessageTime"] = lastMessageTime;
+    data["lastMessageBy"] = lastMessageBy;
+    data["unReadCount"] = unReadCount;
+    data["timeStamp"] = timeStamp;
+    return data;
   }
 }

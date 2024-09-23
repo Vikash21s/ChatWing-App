@@ -8,14 +8,14 @@ class UserUpdateProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Update Profile"),
+        title: const Text("Update Profile"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Theme.of(context).colorScheme.primaryContainer),
@@ -27,22 +27,22 @@ class UserUpdateProfile extends StatelessWidget {
                       Container(
                         width: 200,
                         height: 200,
-                        child: Center(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .surface, //yha se image ya dp ka backgroun ka color change kr skte hain
+                          borderRadius: BorderRadius.circular(
+                            100,
+                          ),
+                        ),
+                        child: const Center(
                           child: Icon(
                             Icons.image,
                             size: 40,
                           ),
                         ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .background, //yha se image ya dp ka backgroun ka color change kr skte hain
-                          borderRadius: BorderRadius.circular(
-                            100,
-                          ),
-                        ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
                           Text(
@@ -51,7 +51,7 @@ class UserUpdateProfile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
                           Text(
@@ -60,18 +60,18 @@ class UserUpdateProfile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextField(
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           hintText: "Enter Your Name",
                           hintStyle: Theme.of(context).textTheme.labelLarge,
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.person,
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
                           Text(
@@ -80,18 +80,18 @@ class UserUpdateProfile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextField(
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           hintText: "Enter Your Email",
                           hintStyle: Theme.of(context).textTheme.labelLarge,
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.alternate_email_rounded,
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
                           Text(
@@ -100,18 +100,18 @@ class UserUpdateProfile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextField(
                         textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           hintText: "Phone Number",
                           hintStyle: Theme.of(context).textTheme.labelLarge,
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.phone,
                           ),
                         ),
                       ),
-                      SizedBox(height: 40), //button save
+                      const SizedBox(height: 40), //button save
                       Row(
                         mainAxisAlignment: MainAxisAlignment
                             .center, //change location  //as per requirment

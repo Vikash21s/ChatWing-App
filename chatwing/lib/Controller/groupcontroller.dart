@@ -14,7 +14,7 @@ class GroupController extends GetxController {
   final auth = FirebaseAuth.instance;
   RxList<UserModel> groupMembers = <UserModel>[].obs;
 
-  var uuid = Uuid();
+  var uuid = const Uuid();
   RxBool isLoading = false.obs;
   RxList<GroupModel> groupList = <GroupModel>[].obs;
   RxString selectedImagePath = "".obs;
@@ -68,12 +68,12 @@ class GroupController extends GetxController {
         backgroundColor: const Color.fromARGB(255, 153, 76, 175),
         colorText: Colors.white,
         borderRadius: 10,
-        margin: EdgeInsets.all(10),
-        duration: Duration(seconds: 3),
-        icon: Icon(Icons.check_circle, color: Colors.white),
+        margin: const EdgeInsets.all(10),
+        duration: const Duration(seconds: 3),
+        icon: const Icon(Icons.check_circle, color: Colors.white),
       );
 
-      Get.offAll(Homepage());
+      Get.offAll(const Homepage());
       isLoading.value = false;
     } catch (e) {
       print(e);

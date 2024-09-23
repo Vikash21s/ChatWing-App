@@ -3,8 +3,6 @@ import 'package:chatwing/Config/images.dart';
 import 'package:chatwing/Controller/groupcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 class SelectedMembers extends StatelessWidget {
   const SelectedMembers({super.key});
@@ -18,10 +16,10 @@ class SelectedMembers extends StatelessWidget {
               .map((e) => Stack(
                     children: [
                       Container(
-                          margin: EdgeInsets.all(10),
+                          margin: const EdgeInsets.all(10),
                           width: 70,
                           height: 70,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: CachedNetworkImage(
@@ -29,9 +27,9 @@ class SelectedMembers extends StatelessWidget {
                                   AssetsImage.defaultProfileUrl,
                               fit: BoxFit.cover,
                               placeholder: (context, url) =>
-                                  CircularProgressIndicator(),
+                                  const CircularProgressIndicator(),
                               errorWidget: (context, url, error) =>
-                                  Icon(Icons.error),
+                                  const Icon(Icons.error),
                             ),
                           )),
                       Positioned(
@@ -42,12 +40,12 @@ class SelectedMembers extends StatelessWidget {
                             groupController.groupMembers.remove(e);
                           },
                           child: Container(
-                            padding: EdgeInsets.all(4),
+                            padding: const EdgeInsets.all(4),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(100),
                             ),
-                            child: Icon(
+                            child: const Icon(
                               Icons.close,
                               color: Colors.black,
                               size: 15,

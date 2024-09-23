@@ -4,9 +4,7 @@ import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Pages/UserProfile/Widgets/userinfo.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class UserProfilePage extends StatelessWidget {
   final UserModel userModel;
@@ -18,13 +16,13 @@ class UserProfilePage extends StatelessWidget {
     Authcontroller authcontroller = Get.put(Authcontroller());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: const Text("Profile"),
         actions: [
           IconButton(
             onPressed: () {
               Get.toNamed("/updateProfilePage");
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.edit,
             ),
           )
@@ -40,12 +38,12 @@ class UserProfilePage extends StatelessWidget {
               userName: userModel.name ?? "User_2112",
               userEmail: userModel.email ?? "",
             ),
-            Spacer(),
+            const Spacer(),
             ElevatedButton(
               onPressed: () {
                 authcontroller.logoutUser();
               },
-              child: Text("Logout"),
+              child: const Text("Logout"),
             )
           ],
         ),

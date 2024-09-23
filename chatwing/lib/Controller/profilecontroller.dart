@@ -3,10 +3,8 @@ import 'dart:io';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 
 class ProfileController extends GetxController {
   final auth = FirebaseAuth.instance;
@@ -16,6 +14,7 @@ class ProfileController extends GetxController {
 
   Rx<UserModel> currentUser = UserModel().obs;
 
+  @override
   void onInit() async {
     super.onInit();
     await getUserDetails();
@@ -60,8 +59,8 @@ class ProfileController extends GetxController {
   }
 
   Future<String> uploadFileToFirebase(String imagePath) async {
-    final path = "files/${imagePath}";
-    final file = File(imagePath!);
+    final path = "files/$imagePath";
+    final file = File(imagePath);
     if (imagePath != "") {
       try {
         final ref = store.ref().child(path).putFile(file);

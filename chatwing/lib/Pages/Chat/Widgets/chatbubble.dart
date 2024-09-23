@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatwing/Config/images.dart';
-import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -22,7 +21,7 @@ class ChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.only(bottom: 20), // Change the margin b/w two messages
+          const EdgeInsets.only(bottom: 20), // Change the margin b/w two messages
       child: Column(
         crossAxisAlignment:
             isComming ? CrossAxisAlignment.start : CrossAxisAlignment.end,
@@ -68,7 +67,7 @@ class ChatBubble extends StatelessWidget {
                     ],
                   ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment:
                 isComming ? MainAxisAlignment.start : MainAxisAlignment.end,

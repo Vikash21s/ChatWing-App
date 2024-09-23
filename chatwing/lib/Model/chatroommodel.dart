@@ -62,23 +62,23 @@ class ChatRoomModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
     if (sender != null) {
-      _data["sender"] = sender?.toJson();
+      data["sender"] = sender?.toJson();
     }
     if (receiver != null) {
-      _data["receiver"] = receiver?.toJson();
+      data["receiver"] = receiver?.toJson();
     }
     if (messages != null) {
-      _data["messages"] = messages;
+      data["messages"] = messages;
     }
-    _data["unReadMessNo"] = unReadMessNo;
-    _data["toUnreadCount"] = toUnreadCount;
-    _data["fromUnreadCount"] = fromUnreadCount;
-    _data["lastMessage"] = lastMessage;
-    _data["lastMessageTimestamp"] = lastMessageTimestamp;
-    _data["timestamp"] = timestamp;
-    return _data;
+    data["unReadMessNo"] = unReadMessNo;
+    data["toUnreadCount"] = toUnreadCount;
+    data["fromUnreadCount"] = fromUnreadCount;
+    data["lastMessage"] = lastMessage;
+    data["lastMessageTimestamp"] = lastMessageTimestamp;
+    data["timestamp"] = timestamp;
+    return data;
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class NewContactTile extends StatelessWidget {
@@ -19,7 +18,7 @@ class NewContactTile extends StatelessWidget {
       highlightColor: Colors.transparent, // this is use to remove touch effect
       onTap: ontap,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Theme.of(context).colorScheme.primaryContainer,
@@ -29,16 +28,16 @@ class NewContactTile extends StatelessWidget {
             Container(
               width: 70,
               height: 70,
-              child: Icon(
-                icon,
-                size: 30,
-              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
                 color: Theme.of(context).colorScheme.primary,
               ),
+              child: Icon(
+                icon,
+                size: 30,
+              ),
             ),
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Text(
               btnName,
               style: Theme.of(context).textTheme.bodyLarge,

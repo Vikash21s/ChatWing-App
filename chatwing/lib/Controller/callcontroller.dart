@@ -6,16 +6,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 class CallController extends GetxController {
   final db = FirebaseFirestore.instance;
   final auth = FirebaseAuth.instance;
-  final uuid = Uuid().v6();
+  final uuid = const Uuid().v6();
 
+  @override
   void onInit() {
     super.onInit();
 
@@ -33,11 +32,11 @@ class CallController extends GetxController {
 
   Future<void> audioCallNotification(CallModel callData) async {
     Get.snackbar(
-      duration: Duration(days: 1),
+      duration: const Duration(days: 1),
       barBlur: 0,
-      backgroundColor: const Color.fromARGB(255, 137, 65, 138)!,
+      backgroundColor: const Color.fromARGB(255, 137, 65, 138),
       isDismissible: false,
-      icon: Icon(Icons.call),
+      icon: const Icon(Icons.call),
       onTap: (snack) {
         Get.back();
         Get.to(
@@ -58,7 +57,7 @@ class CallController extends GetxController {
           endCall(callData);
           Get.back();
         },
-        child: Text("End Call"),
+        child: const Text("End Call"),
       ),
     );
   }
@@ -103,7 +102,7 @@ class CallController extends GetxController {
           .collection("calls")
           .doc(id)
           .set(newCall.toJson());
-      Future.delayed(Duration(seconds: 20), () {
+      Future.delayed(const Duration(seconds: 20), () {
         endCall(newCall);
       });
     } catch (e) {
@@ -139,11 +138,11 @@ class CallController extends GetxController {
 
   void videoCallNotification(CallModel callData) {
     Get.snackbar(
-      duration: Duration(days: 1),
+      duration: const Duration(days: 1),
       barBlur: 0,
-      backgroundColor: const Color.fromARGB(255, 137, 65, 138)!,
+      backgroundColor: const Color.fromARGB(255, 137, 65, 138),
       isDismissible: false,
-      icon: Icon(Icons.video_call),
+      icon: const Icon(Icons.video_call),
       onTap: (snack) {
         Get.back();
         Get.to(
@@ -164,7 +163,7 @@ class CallController extends GetxController {
           endCall(callData);
           Get.back();
         },
-        child: Text("End Call"),
+        child: const Text("End Call"),
       ),
     );
   }

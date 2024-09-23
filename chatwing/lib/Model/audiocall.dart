@@ -46,20 +46,20 @@ class CallModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["callerName"] = callerName;
-    _data["callerPic"] = callerPic;
-    _data["callerUid"] = callerUid;
-    _data["callerEmail"] = callerEmail;
-    _data["receiverName"] = receiverName;
-    _data["receiverPic"] = receiverPic;
-    _data["receiverUid"] = receiverUid;
-    _data["receiverEmail"] = receiverEmail;
-    _data["status"] = status;
-    _data["type"] = type;
-    _data["time"] = time;
-    _data["timestamp"] = timestamp;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["callerName"] = callerName;
+    data["callerPic"] = callerPic;
+    data["callerUid"] = callerUid;
+    data["callerEmail"] = callerEmail;
+    data["receiverName"] = receiverName;
+    data["receiverPic"] = receiverPic;
+    data["receiverUid"] = receiverUid;
+    data["receiverEmail"] = receiverEmail;
+    data["status"] = status;
+    data["type"] = type;
+    data["time"] = time;
+    data["timestamp"] = timestamp;
+    return data;
   }
 }

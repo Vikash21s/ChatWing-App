@@ -2,7 +2,6 @@ import 'package:chatwing/Controller/authcontroller.dart';
 import 'package:chatwing/Widget/primarybutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({super.key});
@@ -20,7 +19,7 @@ class SignupForm extends StatelessWidget {
         const SizedBox(height: 40),
         TextField(
           controller: name,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "Full Name",
             prefixIcon: Icon(
               Icons.person_sharp,
@@ -30,7 +29,7 @@ class SignupForm extends StatelessWidget {
         const SizedBox(height: 30),
         TextField(
           controller: email,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "Email",
             prefixIcon: Icon(
               Icons.alternate_email_rounded,
@@ -40,7 +39,7 @@ class SignupForm extends StatelessWidget {
         const SizedBox(height: 30),
         TextField(
           controller: password,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "Password",
             prefixIcon: Icon(
               Icons.password_outlined,
@@ -50,7 +49,7 @@ class SignupForm extends StatelessWidget {
         const SizedBox(height: 60),
         Obx(
           () => authController.isLoading.value
-              ? CircularProgressIndicator()
+              ? const CircularProgressIndicator()
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

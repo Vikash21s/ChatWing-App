@@ -4,7 +4,6 @@ import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
 class AudioCallPage extends StatelessWidget {

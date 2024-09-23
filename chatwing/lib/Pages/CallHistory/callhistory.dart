@@ -27,8 +27,8 @@ class CallHistory extends StatelessWidget {
               },
             );
           } else {
-            return Center(
-              child: Container(
+            return const Center(
+              child: SizedBox(
                 width: 200,
                 height: 200,
                 child: CircularProgressIndicator(),

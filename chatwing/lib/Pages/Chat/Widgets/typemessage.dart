@@ -6,8 +6,6 @@ import 'package:chatwing/Widget/imagepickerbottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:image_picker/image_picker.dart';
 
 class TypeMessage extends StatelessWidget {
   final UserModel userModel;
@@ -22,8 +20,8 @@ class TypeMessage extends StatelessWidget {
         Get.put(ImagePickerController());
 
     return Container(
-      margin: EdgeInsets.all(5), // yha se mujhe text box ka margin set krna hai
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.all(5), // yha se mujhe text box ka margin set krna hai
+      padding: const EdgeInsets.symmetric(
           vertical: 4,
           horizontal: 20), // yha se text box ka size change kr skte hain
       decoration: BoxDecoration(
@@ -31,7 +29,7 @@ class TypeMessage extends StatelessWidget {
           color: Theme.of(context).colorScheme.primaryContainer),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: 30, // uski configuration 30, 30 hai
             height: 30,
             child: SvgPicture.asset(
@@ -39,7 +37,7 @@ class TypeMessage extends StatelessWidget {
               width: 25,
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: TextField(
               onChanged: (value) {
@@ -52,7 +50,7 @@ class TypeMessage extends StatelessWidget {
                       "Type message ..."), // ye text box me hint ke liye use hua hai
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Obx(
             () => chatController.selectedImagePath.value == ""
                 ? InkWell(
@@ -62,7 +60,7 @@ class TypeMessage extends StatelessWidget {
                           chatController.selectedImagePath,
                           imagePickerController);
                     },
-                    child: Container(
+                    child: SizedBox(
                       width: 35, // uski configuration 30, 30 hai
                       height: 30,
                       child: SvgPicture.asset(
@@ -71,9 +69,9 @@ class TypeMessage extends StatelessWidget {
                       ),
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
 
           Obx(
             () => message.value != "" ||
@@ -91,18 +89,18 @@ class TypeMessage extends StatelessWidget {
                         message.value = "";
                       }
                     },
-                    child: Container(
+                    child: SizedBox(
                       width: 35,
                       height: 38,
                       child: chatController.isLoading.value
-                          ? CircularProgressIndicator()
+                          ? const CircularProgressIndicator()
                           : SvgPicture.asset(
                               AssetsImage.chatSendSvg,
                               width: 25,
                             ),
                     ),
                   )
-                : Container(
+                : SizedBox(
                     width: 30, // uski configuration 30, 30 hai
                     height: 30,
                     child: SvgPicture.asset(

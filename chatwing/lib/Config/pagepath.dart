@@ -1,10 +1,7 @@
 import 'package:chatwing/Pages/Auth/authpage.dart';
-import 'package:chatwing/Pages/Chat/ChatPage.dart';
 import 'package:chatwing/Pages/ContactPage/contactpage.dart';
 import 'package:chatwing/Pages/HomePage/homepage.dart';
 import 'package:chatwing/Pages/ProfilePage/profilepage.dart';
-import 'package:chatwing/Pages/UserProfile/profilepage.dart';
-import 'package:chatwing/Pages/UserProfile/updateprofile.dart';
 import 'package:get/get.dart';
 
 var pagePath = [
@@ -21,12 +18,12 @@ var pagePath = [
 
   GetPage(
     name: "/profilePage",
-    page: () => ProfilePage(),
+    page: () => const ProfilePage(),
     transition: Transition.rightToLeft, // change page slide
   ),
   GetPage(
     name: "/contactPage",
-    page: () => ContactPage(),
+    page: () => const ContactPage(),
     transition: Transition.rightToLeft, // change page slide
   ),
   // GetPage(

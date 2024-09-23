@@ -2,7 +2,6 @@ import 'package:chatwing/Controller/authcontroller.dart';
 import 'package:chatwing/Widget/primarybutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -34,10 +33,10 @@ class LoginForm extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 60),
+        const SizedBox(height: 60),
         Obx(
           () => authController.isLoading.value
-              ? CircularProgressIndicator()
+              ? const CircularProgressIndicator()
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -73,24 +73,24 @@ class ChatModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["message"] = message;
-    _data["senderName"] = senderName;
-    _data["senderId"] = senderId;
-    _data["receiverId"] = receiverId;
-    _data["timestamp"] = timestamp;
-    _data["readStatus"] = readStatus;
-    _data["imageUrl"] = imageUrl;
-    _data["videoUrl"] = videoUrl;
-    _data["audioUrl"] = audioUrl;
-    _data["documentUrl"] = documentUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["message"] = message;
+    data["senderName"] = senderName;
+    data["senderId"] = senderId;
+    data["receiverId"] = receiverId;
+    data["timestamp"] = timestamp;
+    data["readStatus"] = readStatus;
+    data["imageUrl"] = imageUrl;
+    data["videoUrl"] = videoUrl;
+    data["audioUrl"] = audioUrl;
+    data["documentUrl"] = documentUrl;
     if (reactions != null) {
-      _data["reactions"] = reactions;
+      data["reactions"] = reactions;
     }
     if (replies != null) {
-      _data["replies"] = replies;
+      data["replies"] = replies;
     }
-    return _data;
+    return data;
   }
 }

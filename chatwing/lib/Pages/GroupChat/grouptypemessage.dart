@@ -1,15 +1,11 @@
 import 'package:chatwing/Config/images.dart';
-import 'package:chatwing/Controller/chatcontroller.dart';
 import 'package:chatwing/Controller/groupcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:chatwing/Model/groupmodel.dart';
-import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Widget/imagepickerbottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:image_picker/image_picker.dart';
 
 class GroupTypeMessage extends StatelessWidget {
   final GroupModel groupModel;
@@ -24,8 +20,8 @@ class GroupTypeMessage extends StatelessWidget {
     GroupController groupController = Get.put(GroupController());
 
     return Container(
-      margin: EdgeInsets.all(5), // yha se mujhe text box ka margin set krna hai
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.all(5), // yha se mujhe text box ka margin set krna hai
+      padding: const EdgeInsets.symmetric(
           vertical: 4,
           horizontal: 20), // yha se text box ka size change kr skte hain
       decoration: BoxDecoration(
@@ -33,7 +29,7 @@ class GroupTypeMessage extends StatelessWidget {
           color: Theme.of(context).colorScheme.primaryContainer),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: 30, // uski configuration 30, 30 hai
             height: 30,
             child: SvgPicture.asset(
@@ -41,7 +37,7 @@ class GroupTypeMessage extends StatelessWidget {
               width: 25,
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: TextField(
               onChanged: (value) {
@@ -54,7 +50,7 @@ class GroupTypeMessage extends StatelessWidget {
                       "Type message ..."), // ye text box me hint ke liye use hua hai
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Obx(
             () => groupController.selectedImagePath.value == ""
                 ? InkWell(
@@ -64,7 +60,7 @@ class GroupTypeMessage extends StatelessWidget {
                           groupController.selectedImagePath,
                           imagePickerController);
                     },
-                    child: Container(
+                    child: SizedBox(
                       width: 35, // uski configuration 30, 30 hai
                       height: 30,
                       child: SvgPicture.asset(
@@ -73,9 +69,9 @@ class GroupTypeMessage extends StatelessWidget {
                       ),
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
 
           Obx(
             () => message.value != "" ||
@@ -93,18 +89,18 @@ class GroupTypeMessage extends StatelessWidget {
                       messageController.clear();
                       message.value = "";
                     },
-                    child: Container(
+                    child: SizedBox(
                       width: 35,
                       height: 38,
                       child: groupController.isLoading.value
-                          ? CircularProgressIndicator()
+                          ? const CircularProgressIndicator()
                           : SvgPicture.asset(
                               AssetsImage.chatSendSvg,
                               width: 25,
                             ),
                     ),
                   )
-                : Container(
+                : SizedBox(
                     width: 30, // uski configuration 30, 30 hai
                     height: 30,
                     child: SvgPicture.asset(

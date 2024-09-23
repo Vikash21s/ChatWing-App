@@ -6,7 +6,6 @@ import 'package:chatwing/Pages/Chat/chatpage.dart';
 import 'package:chatwing/Pages/HomePage/Widget/chattile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class ChatList extends StatelessWidget {
   const ChatList({super.key});
@@ -20,7 +19,7 @@ class ChatList extends StatelessWidget {
       stream: contactController.getChatRoomStream(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         var chatRoomList = snapshot.data!;

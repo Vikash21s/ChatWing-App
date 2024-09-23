@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chatwing/Config/images.dart';
-import 'package:chatwing/Controller/chatcontroller.dart';
 import 'package:chatwing/Controller/groupcontroller.dart';
 import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/groupmodel.dart';
@@ -11,7 +10,6 @@ import 'package:chatwing/Pages/GroupChat/grouptypemessage.dart';
 import 'package:chatwing/Pages/GroupInfo/groupinfo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 
 class GroupChatPage extends StatelessWidget {
@@ -46,8 +44,8 @@ class GroupChatPage extends StatelessWidget {
                         ? AssetsImage.defaultProfileUrl
                         : groupModel.profileUrl!,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    placeholder: (context, url) => const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                   )),
             ),
           ),
@@ -81,20 +79,20 @@ class GroupChatPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.phone,
             ),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.video_call,
             ),
           )
         ],
       ),
       body: Padding(
-          padding: EdgeInsets.only(bottom: 10, top: 10, left: 10, right: 10),
+          padding: const EdgeInsets.only(bottom: 10, top: 10, left: 10, right: 10),
           child: Column(
             children: [
               Expanded(
@@ -151,7 +149,7 @@ class GroupChatPage extends StatelessWidget {
                               child: Stack(
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.only(bottom: 10),
+                                    margin: const EdgeInsets.only(bottom: 10),
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: FileImage(
@@ -175,7 +173,7 @@ class GroupChatPage extends StatelessWidget {
                                         groupController
                                             .selectedImagePath.value = "";
                                       },
-                                      icon: Icon(Icons.close),
+                                      icon: const Icon(Icons.close),
                                     ),
                                   ),
                                 ],

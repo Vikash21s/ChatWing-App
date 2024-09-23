@@ -12,11 +12,8 @@ import 'package:chatwing/Pages/CallPage/videocall.dart';
 import 'package:chatwing/Pages/Chat/Widgets/chatbubble.dart';
 import 'package:chatwing/Pages/Chat/Widgets/typemessage.dart';
 import 'package:chatwing/Pages/UserProfile/profilepage.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 
 class ChatPage extends StatelessWidget {
@@ -51,8 +48,8 @@ class ChatPage extends StatelessWidget {
                     imageUrl:
                         userModel.profileImage ?? AssetsImage.defaultProfileUrl,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    placeholder: (context, url) => const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                   )),
             ),
           ),
@@ -110,7 +107,7 @@ class ChatPage extends StatelessWidget {
               callController.callAction(
                   userModel, profileController.currentUser.value, "audio");
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.phone,
             ),
           ),
@@ -120,14 +117,14 @@ class ChatPage extends StatelessWidget {
               callController.callAction(
                   userModel, profileController.currentUser.value, "video");
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.video_call,
             ),
           )
         ],
       ),
       body: Padding(
-          padding: EdgeInsets.only(bottom: 10, top: 10, left: 10, right: 10),
+          padding: const EdgeInsets.only(bottom: 10, top: 10, left: 10, right: 10),
           child: Column(
             children: [
               Expanded(
@@ -183,7 +180,7 @@ class ChatPage extends StatelessWidget {
                               child: Stack(
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.only(bottom: 10),
+                                    margin: const EdgeInsets.only(bottom: 10),
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: FileImage(
@@ -207,7 +204,7 @@ class ChatPage extends StatelessWidget {
                                         chatController.selectedImagePath.value =
                                             "";
                                       },
-                                      icon: Icon(Icons.close),
+                                      icon: const Icon(Icons.close),
                                     ),
                                   ),
                                 ],

@@ -26,7 +26,7 @@ class PrimaryButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(
               btnName,
               style: Theme.of(context).textTheme.bodyLarge,

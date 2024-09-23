@@ -1,8 +1,6 @@
-import 'package:chatwing/Controller/chatcontroller.dart';
 import 'package:chatwing/Controller/imagepicker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 
 Future<dynamic> ImagePickerBottomSheet(BuildContext context, RxString imagePath,
@@ -11,7 +9,7 @@ Future<dynamic> ImagePickerBottomSheet(BuildContext context, RxString imagePath,
     height: 150,
     decoration: BoxDecoration(
       color: Theme.of(context).colorScheme.primaryContainer,
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
         topLeft: Radius.circular(10),
         topRight: Radius.circular(10),
       ),
@@ -30,9 +28,9 @@ Future<dynamic> ImagePickerBottomSheet(BuildContext context, RxString imagePath,
             height: 90, // change camera height default 70 70
             width: 90,
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(20)),
-            child: Icon(
+            child: const Icon(
               Icons.camera_alt_rounded,
               size: 30,
             ),
@@ -48,9 +46,9 @@ Future<dynamic> ImagePickerBottomSheet(BuildContext context, RxString imagePath,
             height: 90, // change camera height default 70 70
             width: 90,
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(20)),
-            child: Icon(
+            child: const Icon(
               Icons.photo,
               size: 30,
             ),
@@ -62,9 +60,9 @@ Future<dynamic> ImagePickerBottomSheet(BuildContext context, RxString imagePath,
             height: 90, // change camera height default 70 70
             width: 90,
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(20)),
-            child: Icon(
+            child: const Icon(
               Icons.play_arrow,
               size: 50,
             ),
