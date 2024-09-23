@@ -47,6 +47,8 @@ dependencies:
   intl: ^0.19.0  #for date
   cached_network_image: ^3.4.1 # for cached network image
   fluttertoast: ^8.2.8
+  zego_uikit_prebuilt_call: ^4.15.12
+  zego_uikit_signaling_plugin: ^2.8.4
 
 
 dev_dependencies:

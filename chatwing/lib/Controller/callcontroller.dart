@@ -1,7 +1,9 @@
 import 'package:chatwing/Model/audiocall.dart';
 import 'package:chatwing/Model/usermodel.dart';
+import 'package:chatwing/Pages/CallPage/audiocallpage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
@@ -14,9 +16,39 @@ class CallController extends GetxController {
 
   void onInit() {
     super.onInit();
-    getCallsNotification().listen((snapshot) {
-      if (snapshot.docs.isNotEmpty) {
-        Get.snackbar("Calling", "Calling");
+
+    getCallsNotification().listen((List<AudioCallModel> callList) {
+      if (callList.isNotEmpty) {
+        var callData = callList[0];
+        Get.snackbar(
+          duration: Duration(days: 1),
+          barBlur: 0,
+          backgroundColor: const Color.fromARGB(255, 137, 65, 138)!,
+          isDismissible: false,
+          icon: Icon(Icons.call),
+          onTap: (snack) {
+            Get.back();
+            Get.to(
+              AudioCallPage(
+                target: UserModel(
+                  id: callData.callerUid,
+                  name: callData.callerName,
+                  email: callData.callerEmail,
+                  profileImage: callData.callerPic,
+                ),
+              ),
+            );
+          },
+          callData.callerName!,
+          "Incoming Call",
+          mainButton: TextButton(
+            onPressed: () {
+              endCall(callData);
+              Get.back();
+            },
+            child: Text("End Call"),
+          ),
+        );
       }
     });
   }
@@ -65,12 +97,15 @@ class CallController extends GetxController {
     }
   }
 
-  Stream<QuerySnapshot> getCallsNotification() {
-    return db
+  Stream<List<AudioCallModel>> getCallsNotification() {
+    return FirebaseFirestore.instance
         .collection("notification")
         .doc(auth.currentUser!.uid)
         .collection("call")
-        .snapshots();
+        .snapshots()
+        .map((snapshot) => snapshot.docs
+            .map((doc) => AudioCallModel.fromJson(doc.data()))
+            .toList());
   }
 
   Future<void> endCall(AudioCallModel call) async {
