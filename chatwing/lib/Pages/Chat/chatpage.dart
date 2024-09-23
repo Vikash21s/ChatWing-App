@@ -8,6 +8,7 @@ import 'package:chatwing/Controller/profilecontroller.dart';
 import 'package:chatwing/Model/chatmodel.dart';
 import 'package:chatwing/Model/usermodel.dart';
 import 'package:chatwing/Pages/CallPage/audiocallpage.dart';
+import 'package:chatwing/Pages/CallPage/videocall.dart';
 import 'package:chatwing/Pages/Chat/Widgets/chatbubble.dart';
 import 'package:chatwing/Pages/Chat/Widgets/typemessage.dart';
 import 'package:chatwing/Pages/UserProfile/profilepage.dart';
@@ -107,14 +108,18 @@ class ChatPage extends StatelessWidget {
             onPressed: () {
               Get.to(AudioCallPage(target: userModel));
               callController.callAction(
-                  userModel, profileController.currentUser.value);
+                  userModel, profileController.currentUser.value, "audio");
             },
             icon: Icon(
               Icons.phone,
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(VideoCallPage(target: userModel));
+              callController.callAction(
+                  userModel, profileController.currentUser.value, "video");
+            },
             icon: Icon(
               Icons.video_call,
             ),
