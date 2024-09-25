@@ -10,14 +10,16 @@ import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 class CallController extends GetxController {
-  final db = FirebaseFirestore.instance;
-  final auth = FirebaseAuth.instance;
-  final uuid = const Uuid().v6();
+  var  db ;
+  var  auth;
+  var  uuid;
 
   @override
   void onInit() {
     super.onInit();
-
+    db = FirebaseFirestore.instance;
+    auth = FirebaseAuth.instance;
+    uuid = const Uuid().v6();
     getCallsNotification().listen((List<CallModel> callList) {
       if (callList.isNotEmpty) {
         var callData = callList[0];

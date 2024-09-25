@@ -9,9 +9,9 @@ plugins {
 }
 
 android {
-    namespace = "com.example.chatwing"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    namespace = "com.app.chatwing"
+    compileSdk 34
+    ndkVersion = '27.1.12297006'
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -24,14 +24,14 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.chatwing"
+        applicationId = "com.app.chatwing"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdk = flutter.minSdkVersion 
-        targetSdk = flutter.targetSdkVersion
+        minSdk = flutter.minSdkVersion
+        targetSdk 34
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        minSdkVersion 23
+        minSdk 24
     }
 
     buildTypes {
@@ -41,8 +41,13 @@ android {
             signingConfig = signingConfigs.debug
         }
     }
+    buildToolsVersion '34.0.0'
 }
+
 
 flutter {
     source = "../.."
 }
+/*dependencies {
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+}*/

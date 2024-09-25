@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:939920784674:android:d854566752078298e3397b",
+        "mobilesdk_app_id": "1:939920784674:android:7070121ee8793782e3397b",
         "android_client_info": {
-          "package_name": "com.example.chatwing"
+          "package_name": "com.app.chatwing"
         }
       },
       "oauth_client": [],

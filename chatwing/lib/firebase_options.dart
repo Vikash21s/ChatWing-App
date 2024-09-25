@@ -63,6 +63,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '939920784674',
     projectId: 'chat-wing-chat-app',
     storageBucket: 'chat-wing-chat-app.appspot.com',
-    iosBundleId: 'com.example.chatwing',
+    iosBundleId: 'com.app.chatwing',
   );
 }
