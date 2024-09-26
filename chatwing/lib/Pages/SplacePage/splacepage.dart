@@ -12,11 +12,26 @@ class Splacepage extends StatelessWidget {
     SplaceController splaceController = Get.put(SplaceController());
     return Scaffold(
       body: Center(
-        child: SvgPicture.asset(
-          AssetsImage
-              .appIconSVG, // Bro yha pr change kr app ka lo splace screen pr
-        ),
-      ),
+          child: Image.asset(
+            AssetsImage.logomain,
+            fit: BoxFit.contain,
+            height: 200.0,
+            width: 200.0,
+          )),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
