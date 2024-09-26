@@ -11,7 +11,6 @@ class AuthPageBody extends StatelessWidget {
     RxBool isLogin = true.obs;
     return Container(
       padding: const EdgeInsets.all(20),
-      // height: 400,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Theme.of(context).colorScheme.primaryContainer,
@@ -22,18 +21,16 @@ class AuthPageBody extends StatelessWidget {
             child: Column(
               children: [
                 Obx(
-                  () => Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      () => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      InkWell(
-                        splashColor: Colors.transparent, //
-                        highlightColor: Colors
-                            .transparent, // this is use to remove touch effect
-                        onTap: () {
-                          isLogin.value = true;
-                        },
-                        child: SizedBox(
-                          width: MediaQuery.sizeOf(context).width / 2.5,
+                      Flexible(
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () {
+                            isLogin.value = true;
+                          },
                           child: Column(
                             children: [
                               Text(
@@ -56,15 +53,13 @@ class AuthPageBody extends StatelessWidget {
                           ),
                         ),
                       ),
-                      InkWell(
-                        splashColor: Colors.transparent, //
-                        highlightColor: Colors
-                            .transparent, // this is use to remove touch effect
-                        onTap: () {
-                          isLogin.value = false;
-                        },
-                        child: SizedBox(
-                          width: MediaQuery.sizeOf(context).width / 2.5,
+                      Flexible(
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () {
+                            isLogin.value = false;
+                          },
                           child: Column(
                             children: [
                               Text(
@@ -86,16 +81,17 @@ class AuthPageBody extends StatelessWidget {
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
+                const SizedBox(height: 20), // Add space between tabs and forms
                 Obx(
-                  () => isLogin.value ? const LoginForm() : const SignupForm(),
-                )
+                      () => isLogin.value ? const LoginForm() : const SignupForm(),
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
