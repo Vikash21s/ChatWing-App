@@ -15,9 +15,7 @@ class WelcomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Welcomeheading(),
-              WelcomeBody(),
-              WelcomeFooterButton(),
+            
             ],
           ),
         ),
