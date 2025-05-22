@@ -20,12 +20,6 @@ ChatWing is a modern, fast, and lightweight real-time chat application built wit
 
 ---
 
-## 📸 Screenshots
-
-
-
----
-
 ## 🛠️ Tech Stack
 
 - **Flutter** (Dart)
@@ -34,11 +28,4 @@ ChatWing is a modern, fast, and lightweight real-time chat application built wit
 - **Provider** for state management
 - **Firebase Cloud Messaging** (optional for notifications)
 
----
 
-## 🏁 Getting Started
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/<your-username>/ChatWing.git
-cd ChatWing
